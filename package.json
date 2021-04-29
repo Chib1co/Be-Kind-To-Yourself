@@ -1,0 +1,24 @@
+{
+  "name": "be-kind-to-yourself",
+  "version": "1.0.0",
+  "description": "BCS Project3",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chib1co/Be-Kind-To-Yourself.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chib1co/Be-Kind-To-Yourself/issues"
+  },
+  "homepage": "https://github.com/Chib1co/Be-Kind-To-Yourself#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.12.6",
+    "path": "^0.12.7"
+  }
+}

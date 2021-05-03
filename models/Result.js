@@ -1,3 +1,4 @@
+const { truncate } = require('fs');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -19,6 +20,11 @@ const resultsSchema = new Schema({
     needlists: {
         type: String,
         allowNull: true
+    },
+    user_id: {
+        type: Schema.Types.ObjectId, 
+        ref: "User",
+        required: true
     }
 
 })

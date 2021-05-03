@@ -1,14 +1,15 @@
-  
-const path = require("path");
+const express = require("express");
+const auth = require("./api/auth/auth");
+const user = ("./api/userRoutes");  
+
+
+
 const router = require("express").Router();
 const apiRoutes = require("./api");
 
 // API Routes
 router.use("/api", apiRoutes);
 
-// If no API routes are hit, send the React app
-router.use(function(req, res) {
-  res.sendFile(path.join(__dirname, "../public/index.html"));
-});
-
+router.use(AuthernticatedMiddleware)
+router.use(user)
 module.exports = router;

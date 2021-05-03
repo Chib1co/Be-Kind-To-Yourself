@@ -14,6 +14,11 @@ const activitySchema = new Schema({
     duration: {
         type: Number,
         allowNull: true
+    },
+    user_id: {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+        required: true
     }
 
 

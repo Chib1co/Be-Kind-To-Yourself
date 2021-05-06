@@ -5,6 +5,10 @@ const Schema = mongoose.Schema;
 //create check results schema
 
 const resultsSchema = new Schema({
+    day: {
+        type: Date,
+        default: Date.now
+    },
     score:{
         type: Number,
         required: true
@@ -25,7 +29,8 @@ const resultsSchema = new Schema({
         type: Schema.Types.ObjectId, 
         ref: "User",
         required: true
-    }
+    },
+
 
 })
 

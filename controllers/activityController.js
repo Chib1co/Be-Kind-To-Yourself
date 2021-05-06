@@ -1,4 +1,4 @@
-const db = require("../models");
+const dbActivity = require("../models/Activity");
 
 module.exports = {
     findByID: async (req, res) => {

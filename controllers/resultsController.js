@@ -1,4 +1,4 @@
-const db = require('../models');
+const dbResult = require('../models/Result');
 
 module.exports = {
     //find all saved results by id

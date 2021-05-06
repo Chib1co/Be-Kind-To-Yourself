@@ -1,8 +1,8 @@
 
 const whitelist = [
     "*",
-    "http://localhost:3000",
-    "localhost:3000"
+    "http://localhost:8080",
+    "localhost:8080"
 ];
 
 module.exports = {
@@ -10,7 +10,7 @@ module.exports = {
         if(whitelist.indexOf(origin) !== -1) {
             callback(null, true);
         }else {
-            callback(new Error("NOt allowed by CORS"));
+            callback(new Error("Not allowed by CORS"));
         }
     },
     credentials: true

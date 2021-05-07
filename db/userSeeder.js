@@ -4,7 +4,7 @@ const dbUser = require("../models/User");
 // This file empties the Books collection and inserts the books below
 mongoose.connect(
     process.env.MONGODB_URI ||
-    "mongodb://localhost/reactreadinglist"
+    "mongodb://localhost/Be-Kind-To-Yourself"
   );
   
 const userSeed = [

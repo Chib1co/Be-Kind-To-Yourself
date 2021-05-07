@@ -3,7 +3,7 @@ const dbActivity = require("../models/Activity");
 
 mongoose.connect(
     process.env.MONGODB_URI ||
-    "mongodb://localhost/reactreadinglist"
+    "mongodb://localhost/Be-Kind-To-Yourself"
 );
 
 const activitySeed = [

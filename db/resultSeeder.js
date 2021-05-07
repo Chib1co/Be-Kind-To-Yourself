@@ -3,7 +3,7 @@ const dbResult = require("../models/Result");
 
 mongoose.connect(
     process.env.MONGODB_URI ||
-    "mongodb://localhost/reactreadinglist"
+    "mongodb://localhost/Be-Kind-To-Yourself"
 );
 
 const resultSeed = [

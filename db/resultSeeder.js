@@ -1,10 +1,13 @@
 const mongoose = require("mongoose");
 const dbResult = require("../models/Result");
+const connectDb = require("../config/database");
 
-mongoose.connect(
-    process.env.MONGODB_URI ||
-    "mongodb://localhost/Be-Kind-To-Yourself"
-);
+connectDb()
+
+// mongoose.connect(
+//     process.env.MONGODB_URI ||
+//     "mongodb://localhost/Be-Kind-To-Yourself"
+// );
 
 const resultSeed = [
     {
@@ -23,8 +26,11 @@ const resultSeed = [
     },
 ]
 
-dbResult.deleteMany({})
-  .then(() => Workout.collection.insertMany(resultSeed))
+function seedResults(){
+
+  dbResult.deleteMany({})
+  .then(() => dbResult
+  .collection.insertMany(resultSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
@@ -32,4 +38,7 @@ dbResult.deleteMany({})
   .catch(err => {
     console.error(err);
     process.exit(1);
-  });
+    });
+}
+
+  module.exports = seedResults;

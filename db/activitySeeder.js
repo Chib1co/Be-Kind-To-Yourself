@@ -1,10 +1,12 @@
 const mongoose = require("mongoose");
 const dbActivity = require("../models/Activity");
+const connectDb = require("../config/database");
 
-mongoose.connect(
-    process.env.MONGODB_URI ||
-    "mongodb://localhost/Be-Kind-To-Yourself"
-);
+connectDb()
+// mongoose.connect(
+//     process.env.MONGODB_URI ||
+//     "mongodb://localhost/Be-Kind-To-Yourself"
+// );
 
 const activitySeed = [
     {
@@ -12,8 +14,8 @@ const activitySeed = [
         meditation: 10,
         exercise: [
             {
-               type:"outdoor walk",
-               duration: 30,
+                type: "outdoor walk",
+                duration: 30,
             }
         ],
     },
@@ -22,8 +24,8 @@ const activitySeed = [
         meditation: 5,
         exercise: [
             {
-               type:"swim",
-               duration: 15,
+                type: "swim",
+                duration: 15,
             }
         ],
     },
@@ -32,20 +34,25 @@ const activitySeed = [
         meditation: 15,
         exercise: [
             {
-               type:"",
-               duration: 0,
+                type: "",
+                duration: 0,
             }
         ],
     },
 ]
 
-dbActivity.deleteMany({})
-  .then(() => Workout.collection.insertMany(activitySeed))
-  .then(data => {
-    console.log(data.result.n + " records inserted!");
-    process.exit(0);
-  })
-  .catch(err => {
-    console.error(err);
-    process.exit(1);
-  });
+function seedActivity(){
+
+    dbActivity.deleteMany({})
+        .then(() => dbActivity.collection.insertMany(activitySeed))
+        .then(data => {
+            process.exit(0);
+        })
+        .catch(err => {
+            console.error(err);
+            process.exit(1);
+        });
+}
+
+
+    module.exports = seedActivity;

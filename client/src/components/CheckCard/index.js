@@ -1,4 +1,3 @@
-import { reset } from 'nodemon';
 import React from 'react'
 import "./CheckCard.css"
 
@@ -11,7 +10,7 @@ export default function CheckCard(props) {
     const handleSubmit = (event) => {
         event.preventDefault();
         alert("check result submitted");
-        reset();
+        // reset();
     }
         return (
             <div>

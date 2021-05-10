@@ -1,0 +1,16 @@
+/*sticky footer */
+footer {
+    margin-top: 100vh;
+    padding: 2em 0;
+    background-color :#1b688a;
+    box-shadow: 0 0 1em rgba(0,0,0,0.6);
+    font-weight: 400;
+    font-size: 30px;
+    text-align: right;
+    /* max-width: 1280px; */
+    margin: auto;
+}
+.text{
+  color: #FFF;
+  font-size: 28px;
+}

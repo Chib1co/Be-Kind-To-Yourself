@@ -2,20 +2,18 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "../components/Col";
-import SigninCard from "../components/SigninCard"
+import SignupCard from "../components/SignupCard"
 
 
-export default function Signin(){
+export default function Signup(){
 
  return(
     <Container>
-<div class="container form-card">
     <Row>
         <Col lg="12" className = "submit-form-div">
-            <SigninCard />
+            <SignupCard />
         </Col>
     </Row>
-</div>
 </Container>
  )
 }

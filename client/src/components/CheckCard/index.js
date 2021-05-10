@@ -1,19 +1,44 @@
+import { reset } from 'nodemon';
 import React from 'react'
-import "./style.css"
+import "./CheckCard.css"
 
-export default function CheckCard() {
+export default function CheckCard(props) {
+    // const [score, setScore] = useState("");
+    // const [emotion, setEmotion] = useState([]);
+    // const [note, setNote] = useState("");
+    // const [todo, setTodo] = useState("");
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        alert("check result submitted");
+        reset();
+    }
         return (
             <div>
-<p>1. Pause and breath for a moment</p>
-<p>2. Ask yourself how you feel </p>
-<p>3. Say emotion words out loud or write them on paper</p>
-<form> Write your emotion </form>
-***few original options plus they can add own emotions***
-***maybe let them score 0-10****
-****Note section to write any particular reason you feel that way ****
-Think about your feelings. Sit with them and let them be.
-Ask yourself what you need. Say or list what could help you move forward
-<form> what you need to move forward? </form>
+
+<form onSubmit={handleSubmit}>
+    <label> Score your emotion out of 10</label>
+    <input 
+     type="number"
+     value={props.score}>
+    </input>
+    <label>How you are feeling today</label>
+    <input 
+     type="text"
+     value={props.emotion}>
+    </input>
+    <label>Note: Why you are feeling so today</label>
+    <input 
+     type="text"
+     value={props.note}>
+    </input>
+    <label>List what you need to do to move forward</label>
+    <input 
+     type="text"
+     value={props.todo}>
+    </input>
+ <button type="submit">Submit</button>
+ </form>
 
                 
             </div>

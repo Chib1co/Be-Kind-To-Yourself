@@ -1,7 +1,7 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
-import Row from "../components/Row";
-import Col from "../components/Col";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import StartBtn from "../components/StartBtn";
 import LoginBtn from "../components/LoginBtn";
 
@@ -23,7 +23,7 @@ The goal is everyone to check in with themselves from time to time. It’s a gre
             <Row>
                 <Col>
                 <StartBtn />
-                <LoginBtn />
+                <LoginBtn variant="outlined"/>
                 </Col>
                 </Row>
         </Container>

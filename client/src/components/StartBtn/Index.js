@@ -1,7 +1,15 @@
-import React from "react";
+import React from 'react';
+// import "./StartBtn.css";
 
-function Row(props) {
-  return 
+
+export default function StartBtn(props) {
+   
+        return (
+            <button
+    onClick={props.onClick}
+    className={`card-btn ${props["data-value"]}`}
+    {...props}></button>
+  
+        )
+    
 }
-
-export default Row;

@@ -1,18 +1,31 @@
-import React from "react";
+import {useState, useEffect} from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "../components/Col";
 import LoginCard from "../components/LoginCard"
+import API from "../utils/API"
+
 
 
 export default function Login(){
+const [email, setEmail] = useState("")
+const [password, setPassword] = useState("")
+
+const handleSubmit = async e => {
+    e.preventDefault();
+    const token = await login({
+        email,
+        password
+      });
+      setToken(token);
+    }
 
  return(
     <Container>
     <Row>
         <Col lg="12" className = "submit-form-div">
 
-            <LoginCard />
+            <LoginCard setEmail={setEmail} setPassword={setPassword} handleSubmit={handleSubmit}/>
 
         </Col>
     </Row>

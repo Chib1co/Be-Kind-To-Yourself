@@ -4,17 +4,17 @@ const resultController = require("../../controllers/resultsController");
 
 
 
-router.post('/results', resultController.create);
+router.post('/', resultController.create);
 
-router.get('/results/:id', resultController.findByID);
+router.get('/:id', resultController.findByID);
 
-router.patch('/results/:id', resultController.update);
+router.patch('/:id', resultController.update);
 
-router.delete('/results/:id', resultController.delete);
+router.delete('/:id', resultController.delete);
 
 // 3 other routes....
 
-router.get('/results/latest', resultController.getNewest);
+router.get('/latest', resultController.getNewest);
 
 
 

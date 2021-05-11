@@ -4,13 +4,13 @@ const activityController = require("../../controllers/activityController");
 
 
 
-router.post('/activities', activityController.create);
+router.post('/', activityController.create);
 
-router.get('/activities/:id', activityController.findByID);
+router.get('/:id', activityController.findByID);
 
-router.patch('/activities/:id', activityController.update);
+router.patch('/:id', activityController.update);
 
-router.delete('/activities/:id', activityController.delete);
+router.delete('/:id', activityController.delete);
 
 
 

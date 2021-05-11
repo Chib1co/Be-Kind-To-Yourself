@@ -18,19 +18,69 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
 import './App.css';
+import AUTH from './utils/AUTH';
 
-const Auth = {
-  isAuthenticated: false,
-  authenticate(cb){
-    
-  }
-}
 
 function App() {
+   
+  constructor() {
+    super();
+    
+		this.state = {
+			loggedIn: false,
+			user: null
+    };
+  }
+  
+	componentDidMount() {
+		AUTH.getUser().then(response => {
+			console.log(response.data);
+			if (!!response.data.user) {
+				this.setState({
+					loggedIn: true,
+					user: response.data.user
+				});
+			} else {
+				this.setState({
+					loggedIn: false,
+					user: null
+				});
+			}
+		});
+	}
+
+	logout = (event) => {
+    event.preventDefault();
+    
+		AUTH.logout().then(response => {
+			console.log('successfully logged out!');
+			console.log(response.status);
+			if (response.status === 200) {
+				this.setState({
+					loggedIn: false,
+					user: null
+				});
+			}
+
+		});
+	}
+
+	login = (email, password) => {
+		AUTH.login(email, password).then(response => {
+      console.log(response);
+      if (response.status === 200) {
+        // update the state
+        this.setState({
+          loggedIn: true,
+          user: response.data.user
+        });
+      }
+    });
+	}
   return (
 <Router>
       <div className="app">
-        <Navbar />
+      <Navbar />
         <Wrapper>
           <Route exact path="/" component={Home} />
           <Route exact path="/Checker" component={Checker} />
@@ -40,7 +90,9 @@ function App() {
           <Route exact path="/Charts" component={Charts} />
           <Route exact path="/Daylog" component={DayLog} />
         </Wrapper>
+       
         <Footer />
+
       </div>
     </Router>
   );

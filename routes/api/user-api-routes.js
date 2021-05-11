@@ -4,14 +4,14 @@ const router = express.Router();
 
 
 
-router.get("/users", (req, res) => {
+router.get("/", (req, res) => {
     User.find({}).then((results) => {
         res.json({
             data: results,
         })
     })
 });
-router.get('/users/:id', (req, res) => {
+router.get('/:id', (req, res) => {
     User.findById(req.params.id).then((result) => {
         res.json({
             data: result
@@ -19,7 +19,7 @@ router.get('/users/:id', (req, res) => {
     })    
 });
 
-router.post('/users', (req, res) => {
+router.post('/', (req, res) => {
 
     // validation 
 
@@ -33,7 +33,7 @@ router.post('/users', (req, res) => {
 
 });
 
-router.patch('/users/:id', (req, res) => {
+router.patch('/:id', (req, res) => {
 
 
     User.findByIdAndUpdate(req.params.id, 
@@ -54,7 +54,7 @@ router.patch('/users/:id', (req, res) => {
 
 })
 
-router.delete('/users/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
     User.findByIdAndDelete(req.params.id).then((deleted) => {
         res.json({
             data: true

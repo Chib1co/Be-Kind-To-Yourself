@@ -1,9 +1,9 @@
-import React from "react";
+import {useState, useEffect}from "react";
 import { 
   BrowserRouter as Router,
   Route,
-Link,
-Redirect
+Switch,
+Redirec
 } from "react-router-dom";
 import Home from "./pages/Home";
 import Checker from "./pages/Checker";
@@ -19,65 +19,23 @@ import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
 import './App.css';
 import AUTH from './utils/AUTH';
+import API from "./utils/API"
 
 
 function App() {
    
-  constructor() {
-    super();
-    
-		this.state = {
-			loggedIn: false,
-			user: null
-    };
-  }
+	const [isAuthenticated, setIsAuthenticated ] = useState(false);
+	const value = { isAuthenticated, setIsAuthenticated };
   
-	componentDidMount() {
-		AUTH.getUser().then(response => {
-			console.log(response.data);
-			if (!!response.data.user) {
-				this.setState({
-					loggedIn: true,
-					user: response.data.user
-				});
-			} else {
-				this.setState({
-					loggedIn: false,
-					user: null
-				});
-			}
-		});
-	}
-
-	logout = (event) => {
-    event.preventDefault();
-    
-		AUTH.logout().then(response => {
-			console.log('successfully logged out!');
-			console.log(response.status);
-			if (response.status === 200) {
-				this.setState({
-					loggedIn: false,
-					user: null
-				});
-			}
-
-		});
-	}
-
-	login = (email, password) => {
-		AUTH.login(email, password).then(response => {
-      console.log(response);
-      if (response.status === 200) {
-        // update the state
-        this.setState({
-          loggedIn: true,
-          user: response.data.user
-        });
-      }
-    });
-	}
+	// We check if user is already logged in, and if they are then we set isAuthenticated to true
+	useEffect(() => {
+	  API.userLoggedIn().then(response => {
+		setIsAuthenticated(response.data.isAuthenticated)
+	  })
+	}, []);
+  
   return (
+	<Auth.Provider value={value}>
 <Router>
       <div className="app">
       <Navbar />
@@ -85,16 +43,22 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/Checker" component={Checker} />
           <Route exact path="/Result" component={Result} />
-          <Route exact path="/Login" component={Login} />
-          <Route exact path="/Signup" component={Signup} />
+		  {isAuthenticated ? 
+                  <Main /> : <Login />
+                }
+		  <Route exact path="/Daylog" component={DayLog} />
           <Route exact path="/Charts" component={Charts} />
-          <Route exact path="/Daylog" component={DayLog} />
-        </Wrapper>
+          <Switch>
+		  <Route exact path="/Login" component={Login} />
+          <Route exact path="/Signup" component={Signup} />
+		  </Switch>
+		</Wrapper>
        
         <Footer />
 
       </div>
     </Router>
+	</Auth.Provider>
   );
 }
 

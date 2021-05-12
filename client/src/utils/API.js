@@ -1,5 +1,10 @@
 import axios from "axios";
 
+const axiosInstance = axios.create({
+    baseURL: window.location.host.includes('localhost') ? 'http://localhost:3001' : '',
+    withCredentials: true
+  })
+
 export default {
     getResults: function() {
         return axios.get("api/results")

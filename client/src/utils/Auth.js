@@ -1,21 +1,7 @@
-import axios from "axios";
+import {createContext} from 'react';
 
-export default {
-  // Gets user info
-  getUser: function() {
-    return axios.get('/auth/user');
-  },
-  // Logs the user out
-  logout: function() {
-    console.log("logout");
-    return axios.post('/auth/logout');
-  },
-  // Log the user in
-  login: function(email, password) {
-    return axios.post('/auth/login', { email, password });
-  },
-  // New user registration
-  signup: function(userData) {
-    return axios.post('/auth/signup', userData);
-  }
-};
+// set the defaults
+export const Auth = createContext({
+  isAuthenticated: false, // User is not logged in by default
+  setIsAuthenticated: () => {} // Provide a function to modify context
+});

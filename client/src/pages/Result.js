@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import API from "../utils/API"
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -11,7 +12,10 @@ export default function Result(){
     const [emotion, setEmotion] = useState([]);
     const [note, setNote] = useState("");
     const [todo, setTodo] = useState("");
-
+ useEffect(() => {
+     API.getNewestResult()
+     .then(res => res.json())
+ }, []);
 
     return(
         <Container>

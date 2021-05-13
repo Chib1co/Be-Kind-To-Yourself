@@ -22,11 +22,23 @@ return(
     <form className="login">
         <div className="form-group">
             <label htmlFor="exampleInputEmail1">Email address</label>
-            <input type="email" onChange={props.handleInputChange} value={props.formState.email}className="form-control" id="email-input" placeholder="Email" />
+            <input type="email"
+            name="email"
+             onChange={props.handleInputChange} 
+             value={props.formState.email}
+             className="form-control" 
+             id="email-input" 
+             placeholder="Email" />
         </div>
         <div className="form-group">
             <label htmlFor="exampleInputPassword1">Password</label>
-            <input type="password" onChange={props.handleInputChange} value={props.formState.password} className="form-control" id="password-input" placeholder="Password" />
+            <input type="password" 
+            name="password"
+            onChange={props.handleInputChange} 
+            value={props.formState.password} 
+            className="form-control" 
+            id="password-input" 
+            placeholder="Password" />
         </div>
         <button type="submit" disabled={!(props.formState.email && props.formState.password)} onClick={props.handleFormSubmit} className="form-btn btn btn-default logbtn">Login</button>
         { props.hasErrorState ? <strong>Invalid details, try again</strong> : '' }

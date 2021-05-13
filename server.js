@@ -20,7 +20,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser(process.env.SESSION_SECRET));
 
-// app.use(cors(corsConfig.origin));
+app.use(cors({
+  credentials: true,
+  origin: 'http://localhost:3000',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}));
+
 
 const PORT = process.env.PORT || 3001;
 

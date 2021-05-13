@@ -22,7 +22,7 @@ router.post("/login", passport.authenticate("local"), (req, res) => {
       email: req.body.email,
       firstname: req.body.firstname,
       lastname: req.body.lastname,
-      password: await bcrypt.hash(req.body.password, 10)
+      password: req.body.password
     })
       .then((user)=>{
         
@@ -36,6 +36,7 @@ router.post("/login", passport.authenticate("local"), (req, res) => {
 
 // We use this endpoint to verify a user was previously logged in, by checking the session object. isAuthenticated() is a property provided by passport.
 router.get("/logged-in", (req, res) => {
+  console.log("test-loggedin")
   res.json({isAuthenticated:req.isAuthenticated()});
 });
 

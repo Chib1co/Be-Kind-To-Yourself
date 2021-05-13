@@ -5,10 +5,7 @@ import React from 'react';
 export default function LoginBtn(props) {
    
         return (
-            <button
-    onClick={props.onClick}
-    className={`card-btn ${props["data-value"]}`}
-    {...props}></button>
+            <button onClick={props.handleRoute}>Login</button>
   
         )
     

@@ -76,14 +76,14 @@ export default {
   userLoggedIn: function() {
     return axiosInstance({
       method: 'get',
-      url: "/api/user/logged-in",
+      url: "api/users/logged-in",
     })
   },
 
   userLogout: function() {
     return axiosInstance({
       method: 'get',
-      url: "/api/user/logout",
+      url: "/api/users/logout",
     })
   }
 

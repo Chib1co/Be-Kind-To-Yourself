@@ -6,7 +6,7 @@ export default function SignupCard(props) {
  
 return(
 
-<div className="card shadow signup-card">
+    <div className="card shadow signup-card">
     <h2 className="sign-log-in">Signup Form</h2>
     <form className="signup">
     <div className="form-group">
@@ -56,6 +56,5 @@ return(
     <p className="login-btn-links">Or login <a href="/Login">here</a></p>
     <p className="login-btn-links"><a href="/">Go back to Home</a></p>
 </div>
-
 )
 }

@@ -4,8 +4,19 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import StartBtn from "../components/StartBtn";
 import LoginBtn from "../components/LoginBtn";
+import { useHistory } from "react-router-dom";
 
 export default function Home() {
+
+    const history = useHistory();
+
+    const redirect = () => {
+        history.push("/checker")
+    }
+    const handleRoute = () => {
+        history.push("/Login")
+    }
+
     return (
         <Container>
             <Row>
@@ -22,10 +33,10 @@ The goal is everyone to check in with themselves from time to time. It’s a gre
             </Row>
             <Row>
                 <Col>
-                <StartBtn />
-                <LoginBtn variant="outlined"/>
+                    <StartBtn redirect={redirect} variant="outlined" />
+                    <LoginBtn handleRoute={handleRoute} variant="outlined" />
                 </Col>
-                </Row>
+            </Row>
         </Container>
 
     )

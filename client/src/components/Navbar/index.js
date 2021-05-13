@@ -43,7 +43,7 @@ export default function Navbar() {
                                     : "nav-link"
                             }
                         >
-                            Your dayly tracking
+                            Your daily tracking
                        </Link>
                     </li>
                     <li className="nav-item">

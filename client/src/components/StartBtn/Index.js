@@ -5,11 +5,7 @@ import React from 'react';
 export default function StartBtn(props) {
    
         return (
-            <button
-    onClick={props.onClick}
-    className={`card-btn ${props["data-value"]}`}
-    {...props}></button>
-  
+                <button onClick={props.redirect}>Start Check</button>
         )
     
 }

@@ -1,11 +1,35 @@
-import React from "react";
+import React, {useState} from "react";
 import Container from "react-bootstrap/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
 import CheckCard from "../components/CheckCard";
+import API from "../utils/API"
 
 
 export default function Home() {
+    const [resultForm, setResultForm] = useState({
+        score: "",
+        feeling: "",
+        note: "",
+        list: ""
+    })
+
+    function handleSubmitChange(event) {
+        const {name, value} = event.target;
+        setResultForm({...resultForm, [name]: value.trim()})
+    };
+
+    function handleSubmitResults(e){
+        e.preventDefault();
+        if(resultForm.score && resultForm.feeling){
+            API.postResults({
+                score: resultForm.score,
+                feeling: resultForm.feeling,
+                note: resultForm.note,
+                list: resultForm.list
+            })
+        }
+    }
     return (
         <Container>
             <Row>
@@ -25,7 +49,9 @@ export default function Home() {
 <p>3. Say emotion words out loud or write them on paper</p>
 <p>Think about your feelings. Sit with them and let them be.
 Ask yourself what you need. Say or list what could help you move forward</p>
-               <CheckCard />
+               <CheckCard resultForm={resultForm} 
+               handleSubmitChange={handleSubmitChange}
+               handleSubmitResults={handleSubmitResults}/>
                 </Col>
                 </Row>
         </Container>

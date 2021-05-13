@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-    baseURL: window.location.host.includes('localhost') ? 'http://localhost:3001' : '',
+    baseURL: window.location.host.includes('localhost') ? 'http://localhost:8080' : '',
     withCredentials: true
   })
 
@@ -49,15 +49,43 @@ export default {
         return axios.get("api/users" + id)
     },
 
-    createUser: function() {
-        return axios.post("api/users")
-    },
+    // User sign up
+  userSignup: function (userData) {
+    return axiosInstance({
+      method: 'post',
+      url: "/api/users/signup",
+      data: userData
+    })
+  },
+   // User log in
+   userLogin: function (userData) {
+    return axiosInstance({
+      method: 'post',
+      url: "/api/users/login",
+      data: userData
+    })
+  },
     updateUser: function(id) {
         return axios.patch("api/users" + id)
     },
     deleteUser: function(id) {
         return axios.delete("api/users" + id)
-    }
+    },
+
+     // Check if user is logged in
+  userLoggedIn: function() {
+    return axiosInstance({
+      method: 'get',
+      url: "/api/user/logged-in",
+    })
+  },
+
+  userLogout: function() {
+    return axiosInstance({
+      method: 'get',
+      url: "/api/user/logout",
+    })
+  }
 
 
 }

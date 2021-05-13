@@ -61,7 +61,8 @@ module.exports = {
             const result = await dbResult.findOne().sort({_id: -1});
                 return res.json(result)
         } catch(error) {
-                return res.status(422).json()
+            console.log(error)
+                return res.status(500).json()
             }
              
         }

@@ -1,11 +1,7 @@
 const mongoose = require("mongoose");
 const dbUser = require("../models/User");
 const connectDb = require("../config/database");
-// This file empties the Books collection and inserts the books below
-// mongoose.connect(
-//     process.env.MONGODB_URI ||
-//     "mongodb://localhost/Be-Kind-To-Yourself"
-//   );
+
 connectDb();
 
 const userSeed = [
@@ -13,19 +9,19 @@ const userSeed = [
         firstname: "tomomi",
         lastname: "inoue",
         email: "123@gmail.com",
-        password: "12345"
+        password: "$2y$10$wCXgqyBla4dkU.JnrXMfB.e0ZZ1n0AGfpuZL8maLKoLoqacuNJK5W"
     },
     {
         firstname: "james",
         lastname: "parker",
         email: "jjm@gmail.com",
-        password: "jj1234"
+        password: "$2y$10$SbZfrSQHdGsZusH1UnE19e21WWwJf1nutsb7QiuOxbJ9aGJRoTeiK"
     },
     {
         firstname: "nicole",
         lastname: "smith",
         email: "nicsm@gmail.com",
-        password: "nicer88"
+        password: "$2y$10$.N..PTvbN/xSFSh3gS9jF.kej6fFJQE8A2jKXZVFJQtaQ0BlfC2/S"
     },
 ]
 

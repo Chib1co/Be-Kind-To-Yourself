@@ -1,73 +1,47 @@
-const express = require("express");
-const User = require('./../../models/User');
-const router = express.Router();
+const router = require("express").Router();
+const passport = require("../../config/passport");
+const User = require('../../models/User');
+const bcrypt = require('bcrypt');
 
 
+// Matches with POST /api/user/login
+// Runs through the config/passport.js code because we added passport.authenticate('local') as a second parameter
+// The request is sent to us via a string of random numbers and letters, and then passport
+  // converts it into a user object, which is attached to the request
+router.post("/login", passport.authenticate("local"), (req, res) => {
+  // Sending back a password, even a hashed password, isn't a good idea, so we only send the email and id from the user object
+  res.json({
+    email: req.user.email,
+    id: req.user.id
+  });
+});
 
-router.get("/", (req, res) => {
-    User.find({}).then((results) => {
-        res.json({
-            data: results,
-        })
+ 
+  router.post("/signup", async (req, res) => {
+    User.create({
+      email: req.body.email,
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
+      password: await bcrypt.hash(req.body.password, 10)
     })
-});
-router.get('/:id', (req, res) => {
-    User.findById(req.params.id).then((result) => {
-        res.json({
-            data: result
-        })
-    })    
-});
-
-router.post('/', (req, res) => {
-
-    // validation 
-
-
-    User.create(req.body).then((created)=> {
-        res.json({
-            data: created
-        })
-    })
-
-
+      .then((user)=>{
+        
+        // User has been successfully created, so we send the full user object back to frontend to do something with it (redirect user, usually)
+        res.send(user);
+      })
+      .catch(err => {
+        res.status(500).json(err); // Something went wrong with user creation, so we're sending 500 (Server error) back to frontend
+      });
 });
 
-router.patch('/:id', (req, res) => {
+// We use this endpoint to verify a user was previously logged in, by checking the session object. isAuthenticated() is a property provided by passport.
+router.get("/logged-in", (req, res) => {
+  res.json({isAuthenticated:req.isAuthenticated()});
+});
 
-
-    User.findByIdAndUpdate(req.params.id, 
-        {
-            $push: {
-                email: req.body.email,
-                name: req.body.name,
-                password: req.body.password,
-            },
-        },
-        { new: true, runValidators: true }
-    ).then((updated) => {
-        res.json({
-            data: updated,
-        });
-    });
-    
-
+router.get('/logout', (req, res) => {
+  req.logout(); // This is a simple functionality provided by passport to log out a user and destroy any sessions associated with the user.
+  res.send(200);
 })
-
-router.delete('/:id', (req, res) => {
-    User.findByIdAndDelete(req.params.id).then((deleted) => {
-        res.json({
-            data: true
-        })
-    })
-})
-
-
-router.get("/current-user", (req, res) => {
-    return res.json({
-        data: req.user,
-    });
-});
-
 
 module.exports = router;

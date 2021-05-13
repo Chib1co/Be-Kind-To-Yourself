@@ -3,7 +3,6 @@ import {
   BrowserRouter as Router,
   Route,
 Switch,
-Redirec
 } from "react-router-dom";
 import Home from "./pages/Home";
 import Checker from "./pages/Checker";
@@ -11,14 +10,14 @@ import Result from "./pages/Result";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Charts from "./pages/Charts";
-import DayLog from "./pages/DayLog";
+import Daylog from "./pages/DayLog";
 
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
 import './App.css';
-import AUTH from './utils/AUTH';
+import {Auth} from './utils/Auth';
 import API from "./utils/API"
 
 
@@ -43,11 +42,17 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/Checker" component={Checker} />
           <Route exact path="/Result" component={Result} />
+		  <Route path="/Charts">
 		  {isAuthenticated ? 
-                  <Main /> : <Login />
+                  <Charts /> : <Login />
                 }
-		  <Route exact path="/Daylog" component={DayLog} />
-          <Route exact path="/Charts" component={Charts} />
+				</Route>
+		  <Route exact path="/Daylog">
+		  {isAuthenticated ? 
+                  <Daylog /> : <Login />
+                }
+		  </Route>
+        
           <Switch>
 		  <Route exact path="/Login" component={Login} />
           <Route exact path="/Signup" component={Signup} />

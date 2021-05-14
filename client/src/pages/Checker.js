@@ -34,7 +34,7 @@ export default function Home() {
             })
             .then((res) => {
                 if(res.status === 200){
-                    history.pushState("/result")
+                    history.push("/result")
                 }
             })
             .catch(err => console.log(err));

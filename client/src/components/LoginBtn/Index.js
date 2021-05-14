@@ -5,7 +5,7 @@ import React from 'react';
 export default function LoginBtn(props) {
    
         return (
-            <button onClick={props.handleRoute}>Login</button>
+            <button onClick={props.handleRouteLogin}>Login</button>
   
         )
     

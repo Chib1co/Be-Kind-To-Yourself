@@ -5,6 +5,7 @@ import Col from "react-bootstrap/Col";
 import StartBtn from "../components/StartBtn";
 import LoginBtn from "../components/LoginBtn";
 import { useHistory } from "react-router-dom";
+import API from "../utils/API";
 
 export default function Home() {
 
@@ -13,9 +14,15 @@ export default function Home() {
     const redirect = () => {
         history.push("/checker")
     }
-    const handleRoute = () => {
+    const handleRouteLogin = () => {
         history.push("/Login")
     }
+
+    function logOut() {
+        API.userLogout();
+        history.go(0); // refreshes the page, but we could push them back to login page
+      }
+    
 
     return (
         <Container>
@@ -34,7 +41,10 @@ The goal is everyone to check in with themselves from time to time. It’s a gre
             <Row>
                 <Col>
                     <StartBtn redirect={redirect} variant="outlined" />
-                    <LoginBtn handleRoute={handleRoute} variant="outlined" />
+                    <LoginBtn handleRouteLogin={handleRouteLogin} variant="outlined" />
+                    <div><button type="button" onClick={logOut}>
+    Logout
+ </button></div>
                 </Col>
             </Row>
         </Container>

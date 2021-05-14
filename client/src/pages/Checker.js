@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { useHistory } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
@@ -7,6 +8,9 @@ import API from "../utils/API"
 
 
 export default function Home() {
+    let history = useHistory();
+
+
     const [resultForm, setResultForm] = useState({
         score: "",
         feeling: "",
@@ -28,6 +32,12 @@ export default function Home() {
                 note: resultForm.note,
                 list: resultForm.list
             })
+            .then((res) => {
+                if(res.status === 200){
+                    history.pushState("/result")
+                }
+            })
+            .catch(err => console.log(err));
         }
     }
     return (
@@ -39,7 +49,7 @@ export default function Home() {
             </Row>
             <Row>
                 <Col>
-                    <p>Follow the steps 1 to 5 and answer the questions</p>
+                    <p>Follow the steps and answer the questions</p>
                 </Col>
             </Row>
             <Row>

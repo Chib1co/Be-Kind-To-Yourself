@@ -53,7 +53,7 @@ export default function Navbar() {
             {
                 title: "Logout",
                 onClick: logOut,
-                to: "/",
+                to: "#",
                 show: isAuthenticated, //login only function only
             },
         ];

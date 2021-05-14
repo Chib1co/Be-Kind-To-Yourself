@@ -19,10 +19,12 @@ import Wrapper from "./components/Wrapper";
 import './App.css';
 import {Auth} from './utils/Auth';
 import API from "./utils/API"
+import { useHistory } from "react-router-dom";
 
 
 function App() {
-   
+  const history = useHistory();
+
 	const [isAuthenticated, setIsAuthenticated ] = useState(false);
 	const value = { isAuthenticated, setIsAuthenticated };
   
@@ -31,7 +33,10 @@ function App() {
 	  API.userLoggedIn().then(response => {
 		setIsAuthenticated(response.data.isAuthenticated)
 	  })
-	}, []);
+  }, []);
+  
+
+
   
   return (
 	<Auth.Provider value={value}>
@@ -56,6 +61,7 @@ function App() {
           <Switch>
 		  <Route exact path="/Login" component={Login} />
           <Route exact path="/Signup" component={Signup} />
+ 
 		  </Switch>
 		</Wrapper>
        

@@ -18,12 +18,7 @@ export default function Home() {
         history.push("/Login")
     }
 
-    function logOut() {
-        API.userLogout();
-        history.go(0); // refreshes the page, but we could push them back to login page
-      }
-    
-
+ 
     return (
         <Container>
             <Row>
@@ -41,10 +36,7 @@ The goal is everyone to check in with themselves from time to time. It’s a gre
             <Row>
                 <Col>
                     <StartBtn redirect={redirect} variant="outlined" />
-                    <LoginBtn handleRouteLogin={handleRouteLogin} variant="outlined" />
-                    <div><button type="button" onClick={logOut}>
-    Logout
- </button></div>
+                    <LoginBtn handleRouteLogin={handleRouteLogin} variant="outlined" />               
                 </Col>
             </Row>
         </Container>

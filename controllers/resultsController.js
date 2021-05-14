@@ -15,7 +15,10 @@ module.exports = {
     //create, save new result in db
     create: async (req, res) => {
         try {
-            const result = await dbResult.create(req.body);
+            const result = await dbResult.create({
+                ...req.body,
+                user_id: req.user._id,
+            });
             return res.json(result)
         } catch (error) {
             return res.status(500).json({error})

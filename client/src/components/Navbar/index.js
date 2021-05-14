@@ -1,9 +1,69 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import "bootstrap/js/src/collapse.js";
+import {Auth} from "../../utils/Auth"
+import { useHistory, useLocation } from "react-router-dom";
+import API from "../../utils/API"
 
 export default function Navbar() {
+    const history = useHistory();
+    const location = useLocation();
+    
+    const [isAuthenticated, setisAuthenticated] = useState(null);
+
+    useEffect(( ) => {
+
+        // call isAuthenticated data api to check if isAuthenticated is logged in
+        API.userLoggedIn()
+            .then(result => {
+                setisAuthenticated(result.data.isAuthenticated);
+            })
+            .catch(err => console.log(err));
+
+    }, []);
+
+    const [links, setLinks] = useState([
+        {
+            title: 'Home',
+            to: '/',
+            show: 'always',
+        },
+        {
+            title: 'Checker',
+            to: '/checker',
+            show: 'login', //login only
+        },
+        {
+            title: 'Daily log',
+            to: '/Charts',
+            show: 'login',//login only
+        },
+        {
+            title: 'Login',
+            to: '/login',
+            show: 'public', //public only
+        },
+        {
+            title: 'Sign up',
+            to: '/signup',
+            show: 'public', //public only
+        },
+        {
+            title: 'Logout',
+            onClick: logOut,
+            to: '/',
+            show: 'login', //login only function only
+        },
+    ])
+
+    function logOut() {
+        
+        API.userLogout();
+        history.go(0); // refreshes the page, but we could push them back to login page
+      }
+
+      
     return (
         <nav className = "navbar navbar-expand-lg navbar-light">
             <div className="navbar-text">Be-Kind-To-Yourself</div>
@@ -12,18 +72,28 @@ export default function Navbar() {
             </button>
             <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul className="navbar-nav" id="menu">
-                    <li className="nav-item">
-                        <Link to="/"
-                            className={
-                                window.location.pathname === "/" || window.location.pathname === "Home"
-                                    ? "nav-link active"
-                                    : "nav-link"
+                        {links.map(link => {
+                            console.log('show ' + link.title + ' ' + link.show);
+                            console.log('logged in ', isAuthenticated);
+                            const isLoggedIn = isAuthenticated;
+
+                            if(!isLoggedIn && link.show === 'login'){
+                                return null;
                             }
-                        >
-                            Home
-                       </Link>
-                    </li>
-                    <li className="nav-item">
+                            return ( 
+                            <li className="nav-item">
+                                <Link
+                                    onClick={link.onClick ? link.onClick : () => {}}
+                                    to={link.to}
+                                    className={location.pathname === link.to ? 'nav-link active' : 'nav-link'}
+                                >{link.title}</Link>
+                            </li>
+                            )
+                    
+                    
+                        })}
+                    </ul>
+                    {/* <li className="nav-item">
                         <Link to="/checker"
                             className={
                                 window.location.pathname === "/Checker"
@@ -36,7 +106,7 @@ export default function Navbar() {
                     </li>
                     <li className="nav-item">
                         {/* <a className="nav-link active" href="contact.html">Contact<span class="sr-only">(current)</span></a> */}
-                        <Link to="/charts"
+                        {/* <Link to="/charts"
                             className={
                                 window.location.pathname === "/Charts"
                                     ? "nav-link active"
@@ -68,7 +138,8 @@ export default function Navbar() {
                             Login
                        </Link>
                     </li>
-                </ul>
+                    <li className="nav-item"> */}
+                  
             </div>
         </nav>
     );

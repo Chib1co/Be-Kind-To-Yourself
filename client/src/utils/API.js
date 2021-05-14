@@ -13,7 +13,7 @@ export default {
         return axios.get("api/results" + id)
     },
     getNewestResult: function() {
-        return axios.get("api/results/latest")
+        return axiosInstance.get("api/results/latest")
     },
     
     deleteResult: function(id) {

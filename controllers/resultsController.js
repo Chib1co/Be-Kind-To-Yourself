@@ -5,6 +5,7 @@ module.exports = {
     findByID: async (req, res) => {
         try {
             const results = await dbResult.find(req.params.id);
+            console.log(results)
             return res.json(results)
         }
         catch (error) {

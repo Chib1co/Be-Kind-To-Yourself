@@ -44,7 +44,7 @@ export default function Home() {
         <Container>
             <Row>
                 <Col>
-                    <h3> Your Daily Eomtion Check</h3>
+                    <h3> Your Daily Emotion Check</h3>
                 </Col>
             </Row>
             <Row>

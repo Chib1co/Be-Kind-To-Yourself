@@ -23,39 +23,41 @@ export default function Navbar() {
 
     }, []);
 
-    const [links, setLinks] = useState([
-        {
-            title: 'Home',
-            to: '/',
-            show: 'always',
-        },
-        {
-            title: 'Checker',
-            to: '/checker',
-            show: 'login', //login only
-        },
-        {
-            title: 'Daily log',
-            to: '/Charts',
-            show: 'login',//login only
-        },
-        {
-            title: 'Login',
-            to: '/login',
-            show: 'public', //public only
-        },
-        {
-            title: 'Sign up',
-            to: '/signup',
-            show: 'public', //public only
-        },
-        {
-            title: 'Logout',
-            onClick: logOut,
-            to: '/',
-            show: 'login', //login only function only
-        },
-    ])
+    function links() {
+        return [
+            {
+                title: "Home",
+                to: "/",
+                show: true,
+            },
+            {
+                title: "Checker",
+                to: "/checker",
+                show: isAuthenticated, //login only
+            },
+            {
+                title: "Daily log",
+                to: "/Charts",
+                show: isAuthenticated, //login only
+            },
+            {
+                title: "Login",
+                to: "/login",
+                show: !isAuthenticated, //public only
+            },
+            {
+                title: "Sign up",
+                to: "/signup",
+                show: !isAuthenticated, //public only
+            },
+            {
+                title: "Logout",
+                onClick: logOut,
+                to: "#",
+                show: isAuthenticated, //login only function only
+            },
+        ];
+    }
 
     function logOut() {
         
@@ -72,12 +74,11 @@ export default function Navbar() {
             </button>
             <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul className="navbar-nav" id="menu">
-                        {links.map(link => {
+                        {links().map(link => {
                             console.log('show ' + link.title + ' ' + link.show);
                             console.log('logged in ', isAuthenticated);
-                            const isLoggedIn = isAuthenticated;
 
-                            if(!isLoggedIn && link.show === 'login'){
+                            if(!link.show){
                                 return null;
                             }
                             return ( 

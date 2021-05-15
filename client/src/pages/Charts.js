@@ -1,15 +1,32 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { render } from 'react-dom';
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Highcharts from 'highcharts/highstock';
 import HighchartsReact from 'highcharts-react-official';
+import API from "../utils/API"
 
 
 export default function Chart() {
+    const [result, setResult] = useState({
+        score: "",
+        feeling: "",
+        note: "",
+        list: ""
+    },
+    series: [{data: []}]
+    )}
 
-    
+    useEffect(() => {
+        API.getResult
+        .then(response => {
+            return response.json
+        })
+        .then(data => {
+            setResult({ series: [{data: data}]})
+        })
+    }, [])
         const options = {
         chart: {
             type: 'spline'

@@ -19,8 +19,8 @@ export default function Result() {
 
     useEffect(() => {
         API.getNewestResult()
-            .then(res => {
-                res.json();
+            .then((res) => {
+                res.json()
             })
             .then(data => {
                 setResult(data)

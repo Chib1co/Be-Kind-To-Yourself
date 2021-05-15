@@ -40,7 +40,7 @@ function handleFormSubmit(e){
         .then(response => {
             if(response.data.id) {
                 setIsAuthenticated(true);
-                history.push("/")
+                history.push("/checker")
             }else{
                 setHasErrorState(true)
             }

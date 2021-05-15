@@ -10,7 +10,8 @@ export default function Navbar() {
     const history = useHistory();
     const location = useLocation();
     
-    const [isAuthenticated, setisAuthenticated] = useState(null);
+    const [isAuthenticated, setisAuthenticated] = useState(false);
+    const value = {isAuthenticated, setisAuthenticated};
 
     useEffect(( ) => {
 
@@ -27,33 +28,38 @@ export default function Navbar() {
         {
             title: 'Home',
             to: '/',
-            show: 'always',
+            show: isAuthenticated,
+        },
+        {
+            title: 'Home',
+            to: '/',
+            show: !isAuthenticated,
         },
         {
             title: 'Checker',
             to: '/checker',
-            show: 'login', //login only
+            show: isAuthenticated, //login only
         },
         {
             title: 'Daily log',
             to: '/Charts',
-            show: 'login',//login only
+            show: isAuthenticated,//login only
         },
         {
             title: 'Login',
             to: '/login',
-            show: 'public', //public only
+            show: !isAuthenticated, //public only
         },
         {
             title: 'Sign up',
             to: '/signup',
-            show: 'public', //public only
+            show: !isAuthenticated, //public only
         },
         {
             title: 'Logout',
             onClick: logOut,
             to: '/',
-            show: 'login', //login only function only
+            show: isAuthenticated, //login only function only
         },
     ])
 
@@ -73,13 +79,10 @@ export default function Navbar() {
             <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul className="navbar-nav" id="menu">
                         {links.map(link => {
-                            console.log('show ' + link.title + ' ' + link.show);
-                            console.log('logged in ', isAuthenticated);
-                            const isLoggedIn = isAuthenticated;
+                            // console.log('show ' + link.title + ' ' + link.show);
+                            // console.log('logged in ', isAuthenticated);
 
-                            if(!isLoggedIn && link.show === 'login'){
-                                return null;
-                            }
+                            if(link.show === !isAuthenticated){
                             return ( 
                             <li className="nav-item">
                                 <Link
@@ -89,9 +92,9 @@ export default function Navbar() {
                                 >{link.title}</Link>
                             </li>
                             )
-                    
-                    
-                        })}
+                            }
+                    })
+                }
                     </ul>
                     {/* <li className="nav-item">
                         <Link to="/checker"

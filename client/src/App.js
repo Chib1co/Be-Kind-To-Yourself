@@ -1,8 +1,8 @@
-import {useState, useEffect}from "react";
-import { 
+import { useState, useEffect } from "react";
+import {
   BrowserRouter as Router,
   Route,
-Switch,
+  Switch,
 } from "react-router-dom";
 import Home from "./pages/Home";
 import Checker from "./pages/Checker";
@@ -17,7 +17,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
 import './App.css';
-import {Auth} from './utils/Auth';
+import { Auth } from './utils/Auth';
 import API from "./utils/API"
 import { useHistory } from "react-router-dom";
 
@@ -25,51 +25,63 @@ import { useHistory } from "react-router-dom";
 function App() {
   const history = useHistory();
 
-	const [isAuthenticated, setIsAuthenticated ] = useState(false);
-	const value = { isAuthenticated, setIsAuthenticated };
-  
-	// We check if user is already logged in, and if they are then we set isAuthenticated to true
-	useEffect(() => {
-	  API.userLoggedIn().then(response => {
-		setIsAuthenticated(response.data.isAuthenticated)
-	  })
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const value = { isAuthenticated, setIsAuthenticated };
+
+  // We check if user is already logged in, and if they are then we set isAuthenticated to true
+  useEffect(() => {
+    API.userLoggedIn().then(response => {
+      setIsAuthenticated(response.data.isAuthenticated)
+    })
   }, []);
-  
 
 
-  
+
+
   return (
-	<Auth.Provider value={value}>
-<Router>
-      <div className="app">
-      <Navbar />
-        <Wrapper>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/Checker" component={Checker} />
-          <Route exact path="/Result" component={Result} />
-		  <Route path="/Charts">
-		  {isAuthenticated ? 
-                  <Charts /> : <Login />
-                }
-				</Route>
-		  <Route exact path="/Daylog">
-		  {isAuthenticated ? 
-                  <Daylog /> : <Login />
-                }
-		  </Route>
-        
-          <Switch>
-		  <Route exact path="/Login" component={Login} />
-          <Route exact path="/Signup" component={Signup} />
- 
-		  </Switch>
-		</Wrapper>
-       
-        <Footer />
+    <Auth.Provider value={value}>
+      <Router>
+        <div className="app">
+          <Navbar />
+          <Wrapper>
+            <Route exact path="/" component={Home} />
+            <Route path="/Checker">
+              {isAuthenticated ?
+                <Checker /> : <Login />
+              }
+            </Route>
+            <Route path="/Result">
+              {isAuthenticated ?
+                <Result /> : <Login />
+              }
+            </Route>
+            <Route path="/Charts">
+              {isAuthenticated ?
+                <Charts /> : <Login />
+              }
+            </Route>
+            <Route path="/Daylog">
+              {isAuthenticated ?
+                <Daylog /> : <Login />
+              }
+            </Route>
+            <Route path="/Login">
+              {!isAuthenticated ?
+                <Login /> : <Checker />
+              }
+            </Route>
+            <Route path="/Signup">
+              {!isAuthenticated ?
+                <Signup /> : <Checker />
+              }
+            </Route>
+          </Wrapper>
 
-      </div>
-    </Router>
-	</Auth.Provider>
+          <Footer />
+
+        </div>
+      </Router>
+    </Auth.Provider>
   );
 }
 

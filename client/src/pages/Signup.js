@@ -25,16 +25,18 @@ export default function Signup() {
 
     function handleFormSubmit(e) {
         e.preventDefault();
-        if (formState.email && formState.password && formState.username) {
+        console.log("test sign up")
+        if (formState.email && formState.password && formState.firstname && formState.lastname) {
             API.userSignup({
+                firstname: formState.firstname,
+                lastname: formState.lastname,
                 email: formState.email,
-                username: formState.username,
                 password: formState.password
             })
                 .then((res) => {
 
                     if (res.status === 200) {
-                        history.push("/");
+                        history.push("/checker");
                     }
                 })
                 .catch(err => console.log(err));
@@ -45,10 +47,54 @@ export default function Signup() {
         <Container>
             <Row>
                 <Col lg="12" className="submit-form-div">
-                    <SignupCard
+                    {/* <SignupCard
                         formState={formState}
                         handleInputChange={handleInputChange}
-                        handleFormSubmit={handleFormSubmit} />
+                        handleFormSubmit={handleFormSubmit} /> */}
+                            <form className="signup">
+    <div className="form-group">
+            <label htmlFor="exampleInputFirstname1">First name</label>
+            <input type="firstname" 
+            name="firstname"
+            onChange={handleInputChange} 
+            value={formState.firstname} 
+            className="form-control" 
+            id="firstname-input" 
+            placeholder="Firstname" />
+        </div>
+        <div className="form-group">
+            <label htmlFor="exampleInputLastname1">Last name</label>
+            <input type="lastname" 
+            name="lastname"
+            onChange={handleInputChange} 
+            value={formState.lastname} 
+            className="form-control" 
+            id="lastname-input" 
+            placeholder="Lastname" />
+        </div>
+        <div className="form-group">
+            <label htmlFor="exampleInputEmail1">Email address</label>
+            <input type="email" 
+            name="email"
+            onChange={handleInputChange} 
+            value={formState.email} 
+            className="form-control" 
+            id="email-input" 
+            placeholder="Email" />
+        </div>
+        <div className="form-group">
+            <label htmlFor="exampleInputPassword1">Password</label>
+            <input type="password" 
+            name="password"
+            onChange={handleInputChange} 
+            value={formState.password} 
+            className="form-control" 
+            id="password-input" 
+            placeholder="Password" />
+        </div>
+        <button type="submit" disabled={!(formState.email && formState.password)}
+                onSubmit={handleFormSubmit} className="form-btn btn btn-default logbtn">Sign up</button>
+    </form>
 
                 </Col>
             </Row>

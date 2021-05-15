@@ -2,7 +2,7 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import StartBtn from "../components/StartBtn";
+// import StartBtn from "../components/StartBtn";
 import LoginBtn from "../components/LoginBtn";
 import { useHistory } from "react-router-dom";
 import API from "../utils/API";
@@ -11,9 +11,9 @@ export default function Home() {
 
     const history = useHistory();
 
-    const redirect = () => {
-        history.push("/checker")
-    }
+    // const redirect = () => {
+    //     history.push("/checker")
+    // }
     const handleRouteLogin = () => {
         history.push("/Login")
     }
@@ -35,7 +35,7 @@ The goal is everyone to check in with themselves from time to time. It’s a gre
             </Row>
             <Row>
                 <Col>
-                    <StartBtn redirect={redirect} variant="outlined" />
+                    {/* <StartBtn redirect={redirect} variant="outlined" /> */}
                     <LoginBtn handleRouteLogin={handleRouteLogin} variant="outlined" />               
                 </Col>
             </Row>

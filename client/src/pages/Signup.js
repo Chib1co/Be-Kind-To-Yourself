@@ -34,6 +34,7 @@ export default function Signup() {
                 password: formState.password
             })
                 .then((res) => {
+                    console.log(res)
 
                     if (res.status === 200) {
                         history.push("/checker");

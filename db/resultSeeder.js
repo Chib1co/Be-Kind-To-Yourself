@@ -13,14 +13,14 @@ const resultSeed = [
     {
         day: new Date().setDate(new Date().getDate() - 6),
         score: 7,
-        feelings: ["tired"],
+        feelings: "tired",
         note: "work was busy yesterday",
         needlists: "going to bed early"
     },
     {
         day: new Date().setDate(new Date().getDate() - 5),
         score: 9,
-        feelings: ["happy"],
+        feelings: "happy",
         note: "slept well last night",
         needlists: "going to run"
     },

@@ -12,7 +12,7 @@ export default {
     getResult: function(id) {
         return axios.get("api/results" + id)
     },
-    getNewestResult: function() {
+    getNewestResult: function() {  
         return axiosInstance.get("api/results/latest")
     },
     
@@ -51,6 +51,7 @@ export default {
 
     // User sign up
   userSignup: function (userData) {
+    console.log("test test test")
     return axiosInstance({
       method: 'post',
       url: "/api/users/signup",

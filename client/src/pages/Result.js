@@ -18,14 +18,16 @@ export default function Result() {
     })
 
     useEffect(() => {
-        API.getNewestResult()
-            .then((res) => {
-                res.json()
-            })
-            .then(data => {
-                setResult(data)
-            })
+       loadResult()
         }, []);
+
+        function loadResult() {
+            API.getNewestResult()
+            .then(res => {
+                setResult(res.data)
+                console.log(res.data)
+            })
+        }
 
         const history = useHistory();
 
@@ -44,7 +46,7 @@ export default function Result() {
                 <Row>
                     <Col>
                         <h3>Today's emotion</h3>
-                        <p>todays date</p>
+                        <p>Date: {result.day}</p>
                     </Col>
                 </Row>
                 <Row>
@@ -69,9 +71,9 @@ export default function Result() {
                 </Row>
                 <Row>
                     <Col>
-                        <h6>You can keep tracking your everyday emotion check</h6>
+                        {/* <h6>You can keep tracking your everyday emotion check</h6>
                         <LoginBtn handleRouteLogin={handleRouteLogin} />
-                        <SignupBtn handleRouteSingup={handleRouteSingup} />
+                        <SignupBtn handleRouteSingup={handleRouteSingup} /> */}
                     </Col>
                 </Row>
             </Container>

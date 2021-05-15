@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { render } from 'react-dom';
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -9,37 +9,38 @@ import API from "../utils/API"
 
 
 export default function Chart() {
-    // const [result, setResult] = useState({
-    //     score: "",
-    //     feeling: "",
-    //     note: "",
-    //     list: ""
-    // },
-    // series: [{data: []}]
-    // )}
-
-    // useEffect(() => {
-    //     API.getResult
-    //     .then(response => {
-    //         return response.json
-    //     })
-    //     .then(data => {
-    //         setResult({ series: [{data: data}]})
-    //     })
-    // }, [])
-        const options = {
+    const [options, setOptions] = useState({
         chart: {
             type: 'spline'
         },
         title: {
             text: "your emotion level "
         },
-        series: [
-            {
-                data: [1, 2, 3, 4, 5]
-            }
-        ]
-        }
+        series: [{ data: [] }]
+    })
+
+
+    useEffect(() => {
+        API.getResult()
+        .then(res => {
+            console.log(res.data)
+            setOptions({ series: [{data: res.data.score}]})
+        })
+    }, [])
+
+        // const options = {
+        // chart: {
+        //     type: 'spline'
+        // },
+        // title: {
+        //     text: "your emotion level "
+        // },
+        // series: [
+        //     {
+        //         data: [1, 2, 3, 4, 5]
+        //     }
+        // ]
+        // }
 
 
     return (

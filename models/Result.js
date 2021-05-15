@@ -14,7 +14,7 @@ const resultsSchema = new Schema({
         required: true
     },
     feelings: {
-        type: Array,
+        type: String,
         required: true
     },
     note: {

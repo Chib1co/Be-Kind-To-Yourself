@@ -4,7 +4,7 @@ import API from "../utils/API"
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import LoginBtn from '../components/LoginBtn/Index';
+import LoginBtn from '../components/LoginBtn';
 import SignupBtn from '../components/SignupBtn';
 
 

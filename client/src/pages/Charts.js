@@ -9,24 +9,24 @@ import API from "../utils/API"
 
 
 export default function Chart() {
-    const [result, setResult] = useState({
-        score: "",
-        feeling: "",
-        note: "",
-        list: ""
-    },
-    series: [{data: []}]
-    )}
+    // const [result, setResult] = useState({
+    //     score: "",
+    //     feeling: "",
+    //     note: "",
+    //     list: ""
+    // },
+    // series: [{data: []}]
+    // )}
 
-    useEffect(() => {
-        API.getResult
-        .then(response => {
-            return response.json
-        })
-        .then(data => {
-            setResult({ series: [{data: data}]})
-        })
-    }, [])
+    // useEffect(() => {
+    //     API.getResult
+    //     .then(response => {
+    //         return response.json
+    //     })
+    //     .then(data => {
+    //         setResult({ series: [{data: data}]})
+    //     })
+    // }, [])
         const options = {
         chart: {
             type: 'spline'

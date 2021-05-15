@@ -93,7 +93,7 @@ export default function Signup() {
             placeholder="Password" />
         </div>
         <button type="submit" disabled={!(formState.email && formState.password)}
-                onSubmit={handleFormSubmit} className="form-btn btn btn-default logbtn">Sign up</button>
+                onClick={handleFormSubmit} className="form-btn btn btn-default logbtn">Sign up</button>
     </form>
 
                 </Col>

@@ -1,10 +1,10 @@
-.signup-card{
+#signup-card{
     padding: 20px 40px;
-    background-color: rgba(230, 230, 230, 0.7);
+    background-color: rgba(250, 241, 232, 0.7);
     margin-bottom: 30px;
-    border: none;
+    /* border: none; */
+    color: #989288
 }
-
 
 .btn-info {
     color: #fff;

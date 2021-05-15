@@ -1,5 +1,5 @@
 
-import {useState, useEffect } from "react";
+import React, {useState, useEffect } from "react";
 import "./LoginCard.css"
 
 // async function loginUser(credentials) {
@@ -17,7 +17,7 @@ export default function LoginCard(props) {
  console.log(props.value)
 return(
 
-<div className="card shadow login-card">
+<div className="card shadow login-card" id="login-card">
     <h2 className="sign-log-in">Login Form</h2>
     <form className="login">
         <div className="form-group">

@@ -1,16 +1,21 @@
 /*sticky footer */
 footer {
-    margin-top: 100vh;
-    padding: 2em 0;
-    background-color :#1b688a;
-    box-shadow: 0 0 1em rgba(0,0,0,0.6);
+    padding: 20px;
+    background-color: #f7eee6;
+    /* background: linear-gradient(10deg, #EEDDDD 0%, #FFEEEE 100%); */
+    box-shadow: 2px 2px 15px grey;
+    /* box-shadow: 0 0 1em rgba(0,0,0,0.6); */
     font-weight: 400;
     font-size: 30px;
     text-align: right;
-    /* max-width: 1280px; */
-    margin: auto;
+    margin-top: 20px;
+    width: 100vw;
+    color: #A09A90;
+    /* position: fixed; */
 }
+
 .text{
-  color: #FFF;
+  color: #A09A90;
   font-size: 28px;
+  margin-right: 20px;
 }

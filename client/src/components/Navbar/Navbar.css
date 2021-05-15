@@ -1,6 +1,6 @@
 /*navigation bar */
 .navbar {
-    background-color: #fff;
+  background-color: #f7eee6;
     /* background: linear-gradient(10deg, #EEDDDD 0%, #FFEEEE 100%); */
     box-shadow: 2px 2px 15px grey;
     /* position: fixed; */
@@ -17,11 +17,12 @@
     user-select: none !important;
     /* max-width: 1280px; */
     margin: auto;
+    margin-bottom: 20px;
  
   }
 
 .navbar-text{
-    color: black;
+    color: #A09A90;
     font-size: 40px;
     font-family:Georgia, 'Times New Roman', Times, serif;
 }

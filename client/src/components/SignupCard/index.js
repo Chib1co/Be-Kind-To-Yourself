@@ -6,11 +6,11 @@ export default function SignupCard(props) {
  
 return(
 
-    <div className="card shadow signup-card">
+    <div className="card shadow signup-card" id="signup-card">
     <h2 className="sign-log-in">Signup Form</h2>
     <form className="signup">
     <div className="form-group">
-            <label htmlFor="exampleInputFirstname1">first name</label>
+            <label htmlFor="exampleInputFirstname1">First name</label>
             <input type="firstname" 
             name="firstname"
             onChange={props.handleInputChange} 
@@ -20,7 +20,7 @@ return(
             placeholder="Firstname" />
         </div>
         <div className="form-group">
-            <label htmlFor="exampleInputLastname1">last name</label>
+            <label htmlFor="exampleInputLastname1">Last name</label>
             <input type="lastname" 
             name="lastname"
             onChange={props.handleInputChange} 
@@ -52,6 +52,7 @@ return(
         <button type="submit" disabled={!(props.formState.email && props.formState.password)}
                 onClick={props.handleFormSubmit} className="form-btn btn btn-default logbtn">Sign up</button>
     </form>
+
     <br />
     <p className="login-btn-links">Or login <a href="/Login">here</a></p>
     <p className="login-btn-links"><a href="/">Go back to Home</a></p>

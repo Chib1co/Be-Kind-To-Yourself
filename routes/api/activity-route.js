@@ -1,9 +1,9 @@
 const express = require("express");
 const router = require("express").Router()
 const activityController = require("../../controllers/activityController");
-const AuthenticatedMiddleware = require("../../middleware/AuthenticatedMiddleware")
+// const AuthenticatedMiddleware = require("../../middleware/AuthenticatedMiddleware")
 
-router.use(AuthenticatedMiddleware);
+// router.use(AuthenticatedMiddleware);
 
 router.post('/', activityController.create);
 

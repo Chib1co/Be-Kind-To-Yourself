@@ -50,12 +50,12 @@ return(
             placeholder="Password" />
         </div>
         <button type="submit" disabled={!(props.formState.email && props.formState.password)}
-                onClick={props.handleFormSubmit} className="form-btn btn btn-default logbtn">Sign up</button>
+                onClick={props.handleFormSubmit} className="form-btn btn btn-default logbtn" id="signup-submit">Sign up</button>
     </form>
 
     <br />
-    <p className="login-btn-links">Or login <a href="/Login">here</a></p>
-    <p className="login-btn-links"><a href="/">Go back to Home</a></p>
+    <p className="login-btn-links">Or login <a className="link" href="/Login">here</a></p>
+    <p className="login-btn-links"><a className="link" href="/">Go back to Home</a></p>
 </div>
 )
 }

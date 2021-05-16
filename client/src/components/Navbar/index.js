@@ -46,6 +46,11 @@ export default function Navbar() {
             show: isAuthenticated,//login only
         },
         {
+            title: 'Add Activity',
+            to: '/addactivity',
+            show: isAuthenticated,//login only
+        },
+        {
             title: 'Login',
             to: '/login',
             show: !isAuthenticated, //public only

@@ -36,7 +36,7 @@ router.post("/login", passport.authenticate("local"), (req, res) => {
 
 // We use this endpoint to verify a user was previously logged in, by checking the session object. isAuthenticated() is a property provided by passport.
 router.get("/logged-in", (req, res) => {
-  console.log("test-loggedin")
+  // console.log("test-loggedin")
   res.json({isAuthenticated:req.isAuthenticated()});
 });
 

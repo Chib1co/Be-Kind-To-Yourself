@@ -7,51 +7,50 @@ const axiosInstance = axios.create({
 
 export default {
     getResults: function() {
-        return axios.get("api/results")
+        return axiosInstance.get("api/results")
     },
     getResult: function(id) {
-        return axios.get("api/results" + id)
+        return axiosInstance.get("api/results" + id)
     },
     getNewestResult: function() {  
         return axiosInstance.get("api/results/latest")
     },
     
     deleteResult: function(id) {
-        return axios.delete("api/results" + id)
+        return axiosInstance.delete("api/results/" + id)
     },
     postResults: function(resultData) {
-        return axios.post("api/results", resultData)
+        return axiosInstance.post("api/results", resultData)
     },
 
     getActivities: function() {
-        return axios.get("api/activities")
+        return axiosInstance.get("api/activities")
     },
 
     getActivity: function(id) {
-        return axios.get("api/activities" + id)
+        return axiosInstance.get("api/activities/" + id)
     },
     deleteActivity: function(id) {
-        return axios.get("api/activities" + id)
+        return axiosInstance.get("api/activities/" + id)
     },
     
-    postActivities: function() {
-        return axios.post("api/post")
+    postActivities: function(activityData) {
+        return axiosInstance.post("api/activities", activityData)
     },
     updateActivity: function(id) {
-        return axios.patch("api/activities" + id)
+        return axiosInstance.patch("api/activities/" + id)
     },
 
     getUsers: function() {
-        return axios.get("api/users")
+        return axiosInstance.get("api/users")
     },
 
     getUser: function(id) {
-        return axios.get("api/users" + id)
+        return axiosInstance.get("api/users/" + id)
     },
 
     // User sign up
   userSignup: function (userData) {
-    console.log("test test test")
     return axiosInstance({
       method: 'post',
       url: "/api/users/signup",
@@ -67,10 +66,10 @@ export default {
     })
   },
     updateUser: function(id) {
-        return axios.patch("api/users" + id)
+        return axios.patch("api/users/" + id)
     },
     deleteUser: function(id) {
-        return axios.delete("api/users" + id)
+        return axios.delete("api/users/" + id)
     },
 
      // Check if user is logged in

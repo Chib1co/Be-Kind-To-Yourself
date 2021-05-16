@@ -9,9 +9,27 @@
 }
 
 
-.btn-info {
-    color: #fff;
-    background-color: #525a61;
-    border-color: #FFEEEE;
-    margin-bottom: 20px;
+#log-submit {
+    font-family: "effra", helvetica, arial, sans-serif;
+    font-weight: 400;
+    font-size: 0.813em;
+    letter-spacing: 0.2125em;
+    background-color: rgba(0,0,0,0);
+    border: 1px solid #996439;
+    color: #996439;
+    box-shadow: none;
+    text-transform: uppercase;
+    padding: 1em 1.15em 1em 1.15em;
+}
+
+.sign-log-in{
+    text-align: center;
+}
+
+.login-btn-links{
+    color: #996439;
+}
+
+.link {
+    color:#e65772
 }

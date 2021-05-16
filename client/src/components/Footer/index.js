@@ -4,7 +4,7 @@ import "./Footer.css";
 export default function Footer(){
     return(
   <footer className="footer">
-    <p>Made by Tomomi Inoue</p>
+    <p className="footer-text">Made by Tomomi Inoue</p>
   </footer>
 )
     };

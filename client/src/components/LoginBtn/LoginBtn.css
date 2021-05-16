@@ -10,3 +10,8 @@
     text-transform: uppercase;
     padding: 1em 1.15em 1em 1.15em;
 }
+
+.logbtn:hover{
+    background-color: #996439;
+    color: #ffffff;
+}

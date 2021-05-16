@@ -1,12 +1,12 @@
 import React from 'react';
-// import "./LoginBtn.css";
+import "./SignupBtn.css";
 
 
 export default function SignupBtn(props) {
    
         return (
-            <button onClick={props.handleRouteSignup}>Login</button>
-  
+                <button className="signupbtn" onClick={props.handleRouteSignup}>Sign up</button>
+                
         )
     
 }

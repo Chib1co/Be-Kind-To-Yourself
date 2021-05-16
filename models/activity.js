@@ -1,3 +1,4 @@
+const { truncate } = require('fs');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -12,18 +13,14 @@ const activitySchema = new Schema({
         type: Number,
         allowNull: true
     },
-    exercise: [
-        {
-            type: {
-                type: String,
-                allowNull: true
-            },
-            duration: {
-                type: Number,
-                allowNull: true
-            },
-        }
-    ],
+    exercise: {
+        type:"String",
+        allowNull: true
+    },
+    duration: {
+        type: Number,
+        allowNull: true
+    },
     user_id: {
         type: Schema.Types.ObjectId,
         ref: "User",

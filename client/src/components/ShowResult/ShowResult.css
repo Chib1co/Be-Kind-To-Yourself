@@ -1,0 +1,16 @@
+.showResult{
+    color: #996439;
+    font-family: "museo-slab", rockwell, georgia, serif;
+    text-align: center;
+}
+
+.score{
+    font-size: 24px;
+    font-weight: 300;
+    color:#e65772;
+}
+
+.feelings, .note, .list {
+    font-size: 24px;
+    color:#e65772;
+}

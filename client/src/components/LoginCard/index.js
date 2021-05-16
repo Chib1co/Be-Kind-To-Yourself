@@ -1,17 +1,8 @@
 
 import React, {useState, useEffect } from "react";
 import "./LoginCard.css"
+import LoginBtn from "../LoginBtn"
 
-// async function loginUser(credentials) {
-//     return fetch('http://localhost:3000/Login', {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json'
-//       },
-//       body: JSON.stringify(credentials)
-//     })
-//       .then(data => data.json())
-//    }
 
 export default function LoginCard(props) {
  console.log(props.value)
@@ -40,12 +31,12 @@ return(
             id="password-input" 
             placeholder="Password" />
         </div>
-        <button type="submit" disabled={!(props.formState.email && props.formState.password)} onClick={props.handleFormSubmit} className="form-btn btn btn-default logbtn">Login</button>
+        <button type="submit" disabled={!(props.formState.email && props.formState.password)} onClick={props.handleFormSubmit} className="form-btn btn btn-default logbtn" id="log-submit">Login</button>
         { props.hasErrorState ? <strong>Invalid details, try again</strong> : '' }
     </form>
     <br />
-    <p className="login-btn-links">Or sign up <a href="/signup">here</a></p>
-    <p className="login-btn-links"><a href="/">Go back to Home</a></p>
+    <p className="login-btn-links">Or sign up <a className="link" href="/signup">here</a></p>
+    <p className="login-btn-links"><a className="link" href="/">Go back to Home</a></p>
 </div>
 
 )

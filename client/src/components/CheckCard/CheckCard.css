@@ -1,0 +1,33 @@
+.result-submit-btn{
+    font-family: "effra", helvetica, arial, sans-serif;
+    font-weight: 400;
+    font-size: 0.813em;
+    letter-spacing: 0.2125em;
+    background-color: rgba(0,0,0,0);
+    border: 1px solid #996439;
+    color: #996439;
+    box-shadow: none;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    padding: 5px 10px 5px 10px;
+    /* margin-left: 20px; */
+
+}
+
+.result-submit-btn :hover{
+    background-color: #996439;
+    color: #ffffff;
+}
+
+.emotion-checker{
+    color: #996439;
+    line-height: 1.5em;
+    font-family: "museo-slab", rockwell, georgia, serif;
+    font-size: 20px;
+
+}
+
+.emotion-input{
+    color: #996439;
+    border-color: #996439;
+}

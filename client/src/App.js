@@ -11,6 +11,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Charts from "./pages/Charts";
 import Daylog from "./pages/DayLog";
+import AddActivity from "./pages/AddActivity";
 
 
 import Navbar from "./components/Navbar";
@@ -63,6 +64,11 @@ function App() {
             <Route path="/Daylog">
               {isAuthenticated ?
                 <Daylog /> : <Login />
+              }
+            </Route>
+            <Route path="/addactivity">
+              {isAuthenticated ?
+                <AddActivity /> : <Login />
               }
             </Route>
             <Route path="/Login">

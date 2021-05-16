@@ -1,13 +1,4 @@
-#signup-card{
-    padding: 20px 40px;
-    background-color: rgba(250, 241, 232, 0.7);
-    margin-bottom: 30px;
-    /* border: none; */
-    color: #989288
-}
-
-
-#signup-submit {
+.check-chart{
     font-family: "effra", helvetica, arial, sans-serif;
     font-weight: 400;
     font-size: 0.813em;
@@ -18,16 +9,10 @@
     box-shadow: none;
     text-transform: uppercase;
     padding: 1em 1.15em 1em 1.15em;
+    margin-left: 10px;
 }
 
-.sign-log-in{
-    text-align: center;
-}
-
-.login-btn-links{
-    color: #996439;
-}
-
-.link {
-    color:#e65772
+.check-chart:hover{
+    background-color: #996439;
+    color: #ffffff;
 }

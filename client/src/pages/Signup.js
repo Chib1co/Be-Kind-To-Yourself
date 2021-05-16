@@ -25,7 +25,7 @@ export default function Signup() {
 
     function handleFormSubmit(e) {
         e.preventDefault();
-        console.log("test sign up")
+        // console.log("test sign up")
         if (formState.email && formState.password && formState.firstname && formState.lastname) {
             API.userSignup({
                 firstname: formState.firstname,

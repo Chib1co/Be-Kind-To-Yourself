@@ -10,7 +10,7 @@ export default {
         return axiosInstance.get("api/results")
     },
     getResult: function(id) {
-        return axiosInstance.get("api/results" + id)
+        return axiosInstance.get("api/results/" + id)
     },
     getNewestResult: function() {  
         return axiosInstance.get("api/results/latest")

@@ -9,11 +9,7 @@ export default function Homecontent(props) {
 
         return (
             <div className="homecontent">
-            <Row>
-                <Col>
-                    <h3> 5 Steps for Daily Emotions Check in</h3>
-                </Col>
-            </Row>
+           
             <Row>
                 <Col>
                     <p>Checking in with our thoughts and feelings should be an important part of every day. It’s a healthy technique that helps us to face our emotions, practice mindfulness, and consider what we need.

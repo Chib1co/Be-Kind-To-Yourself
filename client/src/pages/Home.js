@@ -6,6 +6,7 @@ import Col from "react-bootstrap/Col";
 import { useHistory } from "react-router-dom";
 import LoginBtn from "../components/LoginBtn";
 import SignupBtn from "../components/SignupBtn"
+import Hero from "../components/HeroHome"
 import API from "../utils/API";
 
 export default function Home() {
@@ -26,7 +27,14 @@ export default function Home() {
     return (
 
 <Container>
+    <Row>
+        
+<Hero backgroundImage={process.env.PUBLIC_URL + "/images/aaron-burden-3TmLV0fLzfU-unsplash.jpg"} />
+       
+    </Row>
+   
 <Homecontent />
+      
 <Row>
                 <Col>
                     {/* <StartBtn redirect={redirect} variant="outlined" /> */}
@@ -35,6 +43,7 @@ export default function Home() {
                 </Col>
             </Row>
              </Container>
+           
 
     )
 

@@ -101,53 +101,7 @@ export default function Navbar() {
                     })
                 }
                     </ul>
-                    {/* <li className="nav-item">
-                        <Link to="/checker"
-                            className={
-                                window.location.pathname === "/Checker"
-                                    ? "nav-link active"
-                                    : "nav-link"
-                            }
-                        >
-                            Emotion Checker
-                       </Link>
-                    </li>
-                    <li className="nav-item">
-                        {/* <a className="nav-link active" href="contact.html">Contact<span class="sr-only">(current)</span></a> */}
-                        {/* <Link to="/charts"
-                            className={
-                                window.location.pathname === "/Charts"
-                                    ? "nav-link active"
-                                    : "nav-link"
-                            }
-                        >
-                            Your daily tracking
-                       </Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link to="/signup"
-                            className={
-                                window.location.pathname === "/Signup"
-                                    ? "nav-link active"
-                                    : "nav-link"
-                            }
-                        >
-                            Sign up
-                       </Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link to="/Login"
-                            className={
-                                window.location.pathname === "/Login"
-                                    ? "nav-link active"
-                                    : "nav-link"
-                            }
-                        >
-                            Login
-                       </Link>
-                    </li>
-                    <li className="nav-item"> */}
-                  
+                   
             </div>
         </nav>
     );

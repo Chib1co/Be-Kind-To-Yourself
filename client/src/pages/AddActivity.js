@@ -5,6 +5,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import CheckCard from "../components/CheckCard";
 import CheckerText from "../components/CheckerText";
+import AddActivityForm from "../components/AddActivityForm"
 import API from "../utils/API";
 
 export default function AddActivity() {
@@ -48,7 +49,12 @@ export default function AddActivity() {
     <Container>
       <Row>
         <Col>
-          <div className="add-activity-form">
+        <AddActivityForm activity={activity} 
+        handleSubmitChange={handleSubmitChange}
+        handleSubmitActivity={handleSubmitActivity}
+        />
+
+          {/* <div className="add-activity-form">
             <form className="activity-form">
               <label> Add how long you meditate</label>
               <input
@@ -84,7 +90,7 @@ export default function AddActivity() {
                 Submit
               </button>
             </form>
-          </div>
+          </div> */}
         </Col>
       </Row>
     </Container>

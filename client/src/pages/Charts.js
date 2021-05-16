@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import { render } from 'react-dom';
+import { render} from 'react-dom';
+import {useParams} from "react-router-dom"
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -19,11 +20,13 @@ export default function Chart() {
         series: [{ data: [] }]
     })
 
+//    const {id} = useParams()
 
-    useEffect(() => {
-        API.getResult()
+    useEffect((_id) => {
+    
+        API.getResult(_id)
         .then(res => {
-            console.log(res.data)
+            console.log(res)
             setOptions({ series: [{data: res.data.score}]})
         })
     }, [])

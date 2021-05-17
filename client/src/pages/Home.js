@@ -8,7 +8,6 @@ import LoginBtn from "../components/LoginBtn";
 import SignupBtn from "../components/SignupBtn";
 import StartCheckBtn from "../components/StartCheckBtn"
 import Hero from "../components/HeroHome";
-import API from "../utils/API";
 
 export default function Home() {
 

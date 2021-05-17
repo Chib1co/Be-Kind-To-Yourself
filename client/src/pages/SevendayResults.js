@@ -3,10 +3,9 @@ import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import API from "../utils/API";
-import { Card, Button } from "react-bootstrap";
 import ResultsCard from "../components/ResultsCard";
 import ActivityCard from "../components/ActivityCard";
+import API from "../utils/API";
 
 export default function SevendaysResults() {
   const [results, setResults] = useState([]);

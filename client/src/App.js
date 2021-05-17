@@ -20,11 +20,11 @@ import Wrapper from "./components/Wrapper";
 import './App.css';
 import { Auth } from './utils/Auth';
 import API from "./utils/API"
-import { useHistory } from "react-router-dom";
+
 
 
 function App() {
-  const history = useHistory();
+  
 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const value = { isAuthenticated, setIsAuthenticated };

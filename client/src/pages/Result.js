@@ -6,7 +6,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import ShowResult from "../components/ShowResult";
 import AddActivityBtn from "../components/AddActivityBtn";
-import CheckChartBtn from "../components/CheckChartBtn";
 import Plot from "react-plotly.js";
 
 export default function Result() {

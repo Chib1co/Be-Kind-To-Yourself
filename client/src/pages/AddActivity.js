@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import { useHistory } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import CheckCard from "../components/CheckCard";
-import CheckerText from "../components/CheckerText";
 import AddActivityForm from "../components/AddActivityForm"
 import API from "../utils/API";
 import HeroActivity from "../components/HeroActivity"
@@ -18,14 +16,6 @@ export default function AddActivity() {
     duration: "",
   });
 
-  // const{id} = useParams()
-  // useEffect(() => {
-  //     API.getUser(id)
-  //     .then(res => setActivity({
-  //       user_id:(res.data.id)
-  //     })
-  //     )
-  // }, [])
 
   function handleSubmitChange(event) {
     const { name, value } = event.target;

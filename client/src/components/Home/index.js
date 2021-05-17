@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 // import LoginBtn from "../components/LoginBtn";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";

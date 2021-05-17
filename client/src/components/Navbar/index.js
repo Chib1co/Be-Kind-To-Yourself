@@ -56,7 +56,7 @@ export default function Navbar() {
             show: isAuthenticated,//login only
         },
         {
-            title: '7 days results',
+            title: 'Results hitory',
             to: '/sevendayresults',
             show: isAuthenticated,//login only
         },

@@ -7,7 +7,7 @@ import Container from "react-bootstrap/Container";
 // import LoginBtn from '../components/LoginBtn';
 // import SignupBtn from '../components/SignupBtn';
 import ShowResult from "../components/ShowResult";
-import AddActicityBtn from "../components/AddActivityBtn";
+import AddActivityBtn from "../components/AddActivityBtn";
 import CheckChartBtn from "../components/CheckChartBtn";
 
 export default function Result() {
@@ -57,7 +57,7 @@ export default function Result() {
           justifyContent: "center",
         }}
       >
-        <AddActicityBtn  
+        <AddActivityBtn  
         handleRouteAddActivity={handleRouteAddActivity} 
         />
         <CheckChartBtn handleRouteCheckChart={handleRouteCheckChart} />

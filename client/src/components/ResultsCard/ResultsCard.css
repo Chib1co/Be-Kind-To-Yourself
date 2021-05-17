@@ -1,0 +1,20 @@
+#card-header{
+    background-color: #996439;
+    color: #ffffff;
+    font-family: "effra", helvetica, arial, sans-serif;
+}
+
+.card-results{
+    margin-bottom: 20px;
+    font-family: "effra", helvetica, arial, sans-serif;
+}
+
+#card-title{
+    color: #996439;
+    font-weight: 500;
+    font-size: 28px;
+    font-family: "effra", helvetica, arial, sans-serif;
+    text-align: center;
+    margin-bottom: 20px;
+    
+}

@@ -71,7 +71,7 @@ function App() {
                 <AddActivity /> : <Login />
               }
             </Route>
-            <Route path="SevendayResults">
+            <Route path="/SevendayResults">
               {isAuthenticated ?
                 <SevendayResults /> : <Login />
               }

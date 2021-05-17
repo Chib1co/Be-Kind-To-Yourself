@@ -12,7 +12,7 @@ export default function Chart() {
 
   useEffect(() => {
     API.getCurrentUserResult().then((res) => {
-      console.log(res);
+  
 
       const y = res.data.data.slice(-7).map((result) => {
           return result.score

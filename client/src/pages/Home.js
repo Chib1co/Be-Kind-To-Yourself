@@ -5,8 +5,8 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useHistory } from "react-router-dom";
 import LoginBtn from "../components/LoginBtn";
-import SignupBtn from "../components/SignupBtn"
-import Hero from "../components/HeroHome"
+import SignupBtn from "../components/SignupBtn";
+import Hero from "../components/HeroHome";
 import API from "../utils/API";
 
 export default function Home() {

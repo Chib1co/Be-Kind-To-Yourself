@@ -94,7 +94,7 @@ router.post('/login', (req, res, next) => {
 router.get("/logout", (req, res) => {
     console.log('logging out');
     req.logout();
-    req.session.destriy((err) => {
+    req.session.destroy((err) => {
         if(err){
             return res.status(400).json({
                 data: {

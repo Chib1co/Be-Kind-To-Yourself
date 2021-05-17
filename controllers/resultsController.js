@@ -2,6 +2,14 @@ const dbResult = require('../models/Result');
 
 module.exports = {
     //find all saved results by id
+    findAll: async(req, res) => {
+     dbResult.find({})
+     .then((results) => {
+         res.json({
+             data: results,
+         })
+     })
+    },
     findByID: async (req, res) => {
         try {
             const results = await dbResult.find(req.params.id);

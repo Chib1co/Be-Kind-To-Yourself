@@ -31,7 +31,7 @@
 }
 #menu a.nav-link:hover {
   color: #a09a90;
-  background-color: #b3b6b8;
+  background-color: #ffffff;
   /* border: darkgrey 1px solid;
     border-radius: 3px;
    */
@@ -39,7 +39,7 @@
 
 @media (max-width: 767px) {
   #menu {
-    background-color: #bbe6f7;
+    background-color: #ffffff;
     padding-right: 20px;
   }
 }
@@ -50,7 +50,7 @@
     /* color: hotpink; */
   }
   #menu {
-    background-color: #bbe6f7;
+    background-color: #ffffff;
     padding-right: 20px;
   }
 }

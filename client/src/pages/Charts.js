@@ -22,9 +22,9 @@ export default function Chart() {
 
 //    const {id} = useParams()
 
-    useEffect((_id) => {
+    useEffect((user_id) => {
     
-        API.getResult(_id)
+        API.getResult(user_id)
         .then(res => {
             console.log(res)
             setOptions({ series: [{data: res.data.score}]})

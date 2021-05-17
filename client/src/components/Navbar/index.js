@@ -41,7 +41,12 @@ export default function Navbar() {
             show: isAuthenticated, //login only
         },
         {
-            title: 'Daily log',
+            title: 'Day Result',
+            to: '/result',
+            show: isAuthenticated, //login only
+        },
+        {
+            title: 'Daily chart',
             to: '/Charts',
             show: isAuthenticated,//login only
         },

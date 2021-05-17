@@ -1,5 +1,6 @@
 /*navigation bar */
 .navbar {
+  font-family: "effra", helvetica, arial, sans-serif;
   background-color: #f7eee6;
   /* background: linear-gradient(10deg, #EEDDDD 0%, #FFEEEE 100%); */
   box-shadow: 2px 2px 15px grey;
@@ -23,7 +24,8 @@
 .navbar-text {
   color: #a09a90;
   font-size: 40px;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  /* font-family: 'MuseoModerno', cursive; */
+  font-family:  'Source Sans Pro', sans-serif; 
 }
 
 .navbar-nav{

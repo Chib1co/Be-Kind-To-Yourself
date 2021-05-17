@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useHistory, useParams } from "react-router-dom";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+// import { useHistory, useParams } from "react-router-dom";
+// import Container from "react-bootstrap/Container";
+// import Row from "react-bootstrap/Row";
+// import Col from "react-bootstrap/Col";
 import API from "../utils/API";
 import { Card, Button } from "react-bootstrap";
 import ResultCard from "../components/Card"
@@ -19,7 +19,7 @@ export default function SevendaysResults() {
     meditation: "",
     exercise: "",
     duration: ""
-  })
+  });
 
   useEffect(() => {
     loadSevenResults();
@@ -39,17 +39,21 @@ export default function SevendaysResults() {
     .then((res) => {
       setActivity(res.data)
     })
-  }
+  };
+  console.log(results)
+  console.log(activity)
   return (
     // <ResultCard results={results}/>
-          <Container>
+
     <div className="result-card">
+      console.log("hello")
+      <p>hellooooo</p>
       <ul>
-        {results.map((result) => {
+        {results.map(result => {
           return (
- 
+            
             <li>
-              <Card>
+              <Card key={result._id}>
                 <Card.Header>day{result.day}</Card.Header>
                 <Card.Body>
                   <Card.Title>Your score was {result.score} </Card.Title>
@@ -66,6 +70,7 @@ export default function SevendaysResults() {
         })}
       </ul>
     </div>
-    </Container>
+  
+       
   );
 }

@@ -59,7 +59,7 @@ function handleFormSubmit(e){
  return(
     <Container>
     <Row>
-        <Col lg="12" className = "submit-form-div">
+        <Col lg="8" className = "submit-form-div">
 
         <LoginCard formState={formState}
         handleInputChange={handleInputChange}

@@ -33,6 +33,9 @@ export default {
       return axiosInstance.get('/api/activities/current-user');
     },
 
+    postActivities: function(activityData) {
+        return axiosInstance.post("api/activities", activityData)
+    },
     getActivity: function(id) {
         return axiosInstance.get("api/activities/" + id)
     },
@@ -40,9 +43,6 @@ export default {
         return axiosInstance.get("api/activities/" + id)
     },
     
-    postActivities: function(activityData) {
-        return axiosInstance.post("api/activities", activityData)
-    },
     updateActivity: function(id) {
         return axiosInstance.patch("api/activities/" + id)
     },

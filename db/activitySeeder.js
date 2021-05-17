@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const dbActivity = require("../models/Activity");
+const dbActivity = require("../models/activity");
 const connectDb = require("../config/database");
 
 connectDb()
@@ -12,32 +12,20 @@ const activitySeed = [
     {
         day: new Date().setDate(new Date().getDate() - 6),
         meditation: 10,
-        exercise: [
-            {
-                type: "outdoor walk",
-                duration: 30,
-            }
-        ],
+        exercise: "run",
+        duration: 25
     },
     {
         day: new Date().setDate(new Date().getDate() - 5),
         meditation: 5,
-        exercise: [
-            {
-                type: "swim",
-                duration: 15,
-            }
-        ],
+        exercise: "walk",
+        duration: 30
     },
     {
         day: new Date().setDate(new Date().getDate() - 4),
-        meditation: 15,
-        exercise: [
-            {
-                type: "",
-                duration: 0,
-            }
-        ],
+        meditation: 20,
+        exercise: "",
+        duration: 0
     },
 ]
 

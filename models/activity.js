@@ -14,7 +14,7 @@ const activitySchema = new Schema({
         allowNull: true
     },
     exercise: {
-        type:"String",
+        type:String,
         allowNull: true
     },
     duration: {
@@ -22,7 +22,7 @@ const activitySchema = new Schema({
         allowNull: true
     },
     user_id: {
-        type: Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId, 
         ref: "User",
         required: true
     },
@@ -30,6 +30,6 @@ const activitySchema = new Schema({
 
 })
 
-const Activity = mongoose.model("Activity", activitySchema);
+const Activity = mongoose.model("activity", activitySchema);
 
 module.exports = Activity

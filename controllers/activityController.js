@@ -1,9 +1,9 @@
-const dbActivity = require("../models/Activity");
+const dbActivity = require("../models/activity");
 
 module.exports = {
     findAll: async(req, res) => {
         dbActivity.find({})
-        .then((result) => {
+        .then((results) => {
             res.json({
                 data: results
             })
@@ -35,7 +35,10 @@ module.exports = {
     //create, save new result in db
     create: async (req, res) => {
         try {
-            const result = await dbActivity.create(req.body);
+            const result = await dbActivity.create({
+                ...req.body,
+                user_id: req.user._id
+            });
             return res.json(result)
         } catch (error) {
             return res.status(422).json(error)

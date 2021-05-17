@@ -6,7 +6,8 @@ const activityController = require("../../controllers/activityController");
 // router.use(AuthenticatedMiddleware);
 
 router.post('/', activityController.create);
-
+router.get('/', activityController.findAll);
+router.get('/current-user', activityController.currentUserActivity);
 router.get('/:id', activityController.findByID);
 
 router.patch('/:id', activityController.update);

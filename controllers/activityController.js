@@ -1,6 +1,28 @@
 const dbActivity = require("../models/Activity");
 
 module.exports = {
+    findAll: async(req, res) => {
+        dbActivity.find({})
+        .then((result) => {
+            res.json({
+                data: results
+            })
+        })
+    },
+    currentUserActivity: async (req, res) => {
+        const userId = req.user._id;
+    
+        dbActivity.find({
+            user_id: userId,
+        }).then( (results) => {
+            res.json({
+                data:results
+            })
+        }) 
+        
+        
+    },
+
     findByID: async (req, res) => {
         try {
             const results = await dbActivity.find(req.params.id);

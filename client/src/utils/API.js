@@ -29,6 +29,9 @@ export default {
     getActivities: function() {
         return axiosInstance.get("api/activities")
     },
+    getCurrentUserActivity(){
+      return axiosInstance.get('/api/activities/current-user');
+    },
 
     getActivity: function(id) {
         return axiosInstance.get("api/activities/" + id)

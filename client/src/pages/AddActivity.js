@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -41,7 +41,7 @@ export default function AddActivity() {
     })
       .then((res) => {
         if (res.stats === 200) {
-          history.push("/charts");
+          history.push("/sevendayresults");
         }
       })
       .catch((err) => console.log(err));

@@ -2,7 +2,7 @@ import React, {useState, useContext} from "react";
 import { useHistory } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import Col from "../components/Col";
+import Col from "react-bootstrap/Col";
 import LoginCard from "../components/LoginCard"
 import API from "../utils/API"
 import {Auth} from "../utils/Auth"

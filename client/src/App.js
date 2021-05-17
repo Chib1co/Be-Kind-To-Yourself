@@ -8,7 +8,7 @@ import Checker from "./pages/Checker";
 import Result from "./pages/Result";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import Charts from "./pages/Charts";
+// import Charts from "./pages/Charts";
 import Daylog from "./pages/DayLog";
 import AddActivity from "./pages/AddActivity";
 import SevendayResults from "./pages/SevendayResults";
@@ -56,11 +56,11 @@ function App() {
                 <Result /> : <Login />
               }
             </Route>
-            <Route path="/Charts">
+            {/* <Route path="/Charts">
               {isAuthenticated ?
                 <Charts /> : <Login />
               }
-            </Route>
+            </Route> */}
             <Route path="/Daylog">
               {isAuthenticated ?
                 <Daylog /> : <Login />

@@ -1,17 +1,18 @@
 import React from "react";
 import {Card} from "react-bootstrap";
+import "./ActivityCard.css"
 
 export default function ActivityCard(props){
     return(
         <div className="result-card">
             
-        {props.activities.map((activity) => {
+        {props.activities.slice(-7).map((activity) => {
           return (
            
               <Card key={activity._id} className="card-activity">
-                <Card.Header id="card-header">Date: {activity.day}</Card.Header>
+                <Card.Header id="card-header-activity">Date: {activity.day}</Card.Header>
                 <Card.Body>
-                  <Card.Title id="card-title">Your Activity history</Card.Title>
+                  <Card.Title id="card-title-activity">Your Activity history</Card.Title>
                   <Card.Text className="card-text">
                     Your meditation time: {activity.meditation}
                   </Card.Text>

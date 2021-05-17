@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import API from "../utils/API"
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import Col from "../components/Col";
+import Col from "react-bootstrap/Col";
 import SignupCard from "../components/SignupCard"
 
 

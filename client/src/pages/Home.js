@@ -6,6 +6,7 @@ import Col from "react-bootstrap/Col";
 import { useHistory } from "react-router-dom";
 import LoginBtn from "../components/LoginBtn";
 import SignupBtn from "../components/SignupBtn";
+import StartCheckBtn from "../components/StartCheckBtn"
 import Hero from "../components/HeroHome";
 import API from "../utils/API";
 
@@ -21,6 +22,9 @@ export default function Home() {
     }
     const handleRouteSignup = () => {
         history.push("./signup")
+    }
+    const handleRouteStartCheck = () => {
+        history.push("./checker")
     }
 
  
@@ -39,7 +43,8 @@ export default function Home() {
                 <Col>
                     {/* <StartBtn redirect={redirect} variant="outlined" /> */}
                     <LoginBtn handleRouteLogin={handleRouteLogin} variant="outlined" />
-                    <SignupBtn handleRouteSignup={handleRouteSignup} variant="outlined" />                  
+                    <SignupBtn handleRouteSignup={handleRouteSignup} variant="outlined" />
+                    <StartCheckBtn handleRouteStartCheck={handleRouteStartCheck} variant="outlined" />                   
                 </Col>
             </Row>
              </Container>

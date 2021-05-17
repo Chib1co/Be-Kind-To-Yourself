@@ -45,11 +45,11 @@ export default function Navbar() {
             to: '/result',
             show: isAuthenticated, //login only
         },
-        {
-            title: 'Daily chart',
-            to: '/Charts',
-            show: isAuthenticated,//login only
-        },
+        // {
+        //     title: 'Daily chart',
+        //     to: '/Charts',
+        //     show: isAuthenticated,//login only
+        // },
         {
             title: 'Add Activity',
             to: '/addactivity',

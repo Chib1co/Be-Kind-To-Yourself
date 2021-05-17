@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Card } from "react-bootstrap";
 // import AddActivityBtn from "../AddActivityBtn"
 import "./ResultsCard.css"
@@ -8,7 +8,7 @@ export default function ResultsCard(props) {
         <div className="result-card">
           
               {props.results &&
-                props.results.map((result) => {
+                props.results.slice(-7).map((result) => {
                   return (
                    
                       <Card key={result._id} className="card-results">

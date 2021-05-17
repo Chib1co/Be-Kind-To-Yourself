@@ -11,7 +11,7 @@ export default function Chart() {
 
 
   useEffect(() => {
-    API.getCurrentUserResult().then((res) => {
+    function getChart() {API.getCurrentUserResult().then((res) => {
   
 
       const y = res.data.data.slice(-7).map((result) => {
@@ -38,6 +38,8 @@ export default function Chart() {
         
       ]);
     });
+  }
+  getChart()
   }, []);
 
   return (

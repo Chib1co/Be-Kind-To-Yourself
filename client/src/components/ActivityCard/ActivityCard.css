@@ -1,0 +1,21 @@
+#card-header-activity{
+    background-color: #996439;
+    color: #ffffff;
+    font-family: "effra", helvetica, arial, sans-serif;
+}
+
+.card-activity{
+    margin-bottom: 20px;
+    font-family: "effra", helvetica, arial, sans-serif;
+    margin-bottom: 20px;
+}
+
+#card-title-activity{
+    color: #996439;
+    font-weight: 500;
+    font-size: 28px;
+    font-family: "effra", helvetica, arial, sans-serif;
+    text-align: center;
+    
+    
+}

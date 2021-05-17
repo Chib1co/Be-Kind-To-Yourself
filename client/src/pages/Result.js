@@ -2,13 +2,12 @@ import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import API from "../utils/API";
 import Container from "react-bootstrap/Container";
-// import Row from "react-bootstrap/Row";
-// import Col from "react-bootstrap/Col";
-// import LoginBtn from '../components/LoginBtn';
-// import SignupBtn from '../components/SignupBtn';
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import ShowResult from "../components/ShowResult";
 import AddActivityBtn from "../components/AddActivityBtn";
 import CheckChartBtn from "../components/CheckChartBtn";
+import Plot from "react-plotly.js";
 
 export default function Result() {
   const [result, setResult] = useState({
@@ -18,23 +17,55 @@ export default function Result() {
     list: "",
   });
 
-  useEffect(() => {
-    loadResult();
-  }, []);
+  const [options, setOptions] = useState();
 
-  function loadResult() {
-    API.getNewestResult().then((res) => {
-      setResult(res.data);
-      console.log(res.data);
+  useEffect(() => {
+    function loadResult() {
+      API.getNewestResult().then((res) => {
+        setResult(res.data);
+        console.log(res.data);
+      });
+    }
+
+    function getChart() {API.getCurrentUserResult().then((res) => {
+  
+
+      const y = res.data.data.slice(-7).map((result) => {
+          return result.score
+      });
+      const x = res.data.data.slice(-7).map(result => result.day)
+      setOptions([
+        {
+          x,
+          y,
+          options: {
+              scales: {
+                  xAxes: [
+                      {
+                          type: 'time'
+                      }
+                  ]
+              }
+          },
+          type: "scatter",
+          mode: "lines+markers",
+          marker: { color: "brown" },
+        },
+        
+      ]);
     });
   }
+    loadResult()
+    getChart()
+  }, []);
 
-  // const dateObj = result.day
-  // const month = dateObj.getMonth() + 1; //months from 1-12
-  // var day = dateObj.getDate();
-  // var year = dateObj.getFullYear();
+  // function loadResult() {
+  //   API.getNewestResult().then((res) => {
+  //     setResult(res.data);
+  //     console.log(res.data);
+  //   });
+  // }
 
-  // const newdate = day + "/" + month + "/" + year
 
   const history = useHistory();
 
@@ -42,12 +73,15 @@ export default function Result() {
     history.push("/addactivity");
   };
 
-  const handleRouteCheckChart = () => {
-    history.push("/charts");
-  };
+  // const handleRouteCheckChart = () => {
+  //   history.push("/charts");
+  // };
 
   return (
     <Container>
+      <Row>
+        <Col lg="5" md="12" sm="12">
+       
       <ShowResult result={result} />
       <div
         className="link-btns"
@@ -60,8 +94,22 @@ export default function Result() {
         <AddActivityBtn  
         handleRouteAddActivity={handleRouteAddActivity} 
         />
-        <CheckChartBtn handleRouteCheckChart={handleRouteCheckChart} />
+        {/* <CheckChartBtn handleRouteCheckChart={handleRouteCheckChart} /> */}
       </div>
+      </Col>
+      <Col lg="7"  md="12" sm="12">
+      <div 
+      className="chart" data={options}>
+     
+            <Plot
+              data={options}
+              layout={{ height: 360, title: "Last 7 scores", color: "brown"}}
+            />
+          </div>
+     
+      </Col>
+      </Row>
+      
     </Container>
   );
 }

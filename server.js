@@ -7,6 +7,7 @@ const cors = require("cors");
 const corsConfig = require("./config/cors");
 const passport = require("passport");
 const connectDb = require("./config/database");
+const Mongoose = require("mongoose")
 
 var MongoDBStore = require('connect-mongodb-session')(session);
 const routes = require("./routes");
@@ -29,6 +30,9 @@ app.use(cors({
 
 const PORT = process.env.PORT || 3001;
 
+Mongoose.connect(
+  process.env.MONGODB_URI ||""
+)
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));

@@ -6,6 +6,8 @@ import Col from "react-bootstrap/Col";
 import AddActivityForm from "../components/AddActivityForm"
 import API from "../utils/API";
 import HeroActivity from "../components/HeroActivity"
+// import { useAlert } from 'react-alert'
+
 
 export default function AddActivity() {
   let history = useHistory();
@@ -30,8 +32,9 @@ export default function AddActivity() {
       duration: activity.duration,
     })
       .then((res) => {
-        if (res.stats === 200) {
-          history.push("/sevendayresults");
+        if (res.status === 200) {
+          history.push("/SevendayResults");
+          // console.log("hello")
         }
       })
       .catch((err) => console.log(err));

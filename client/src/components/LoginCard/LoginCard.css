@@ -31,5 +31,12 @@
 }
 
 .link {
-    color:#e65772
+    color:#996439;
+    text-decoration: underline;
+
+}
+
+.link:hover{
+    background-color: #996439;
+    color: #ffffff
 }

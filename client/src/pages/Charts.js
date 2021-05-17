@@ -1,69 +1,60 @@
-import React, {useState, useEffect} from 'react';
-import { render} from 'react-dom';
-import {useParams} from "react-router-dom"
+import React, { useState, useEffect } from "react";
+import { render } from "react-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Highcharts from 'highcharts/highstock';
-import HighchartsReact from 'highcharts-react-official';
-import API from "../utils/API"
-
+import Plot from "react-plotly.js";
+import API from "../utils/API";
 
 export default function Chart() {
-    const [options, setOptions] = useState({
-        chart: {
-            type: 'spline'
+  const [options, setOptions] = useState();
+
+
+  useEffect(() => {
+    API.getCurrentUserResult().then((res) => {
+      console.log(res);
+
+      const y = res.data.data.slice(-7).map((result) => {
+          return result.score
+      });
+      const x = res.data.data.slice(-7).map(result => result.day)
+      setOptions([
+        {
+          x,
+          y,
+          options: {
+              scales: {
+                  xAxes: [
+                      {
+                          type: 'time'
+                      }
+                  ]
+              }
+          },
+          type: "scatter",
+          mode: "lines+markers",
+          marker: { color: "brown" },
         },
-        title: {
-            text: "your emotion level "
-        },
-        series: [{ data: [] }]
-    })
+        
+      ]);
+    });
+  }, []);
 
-//    const {id} = useParams()
-
-    useEffect((user_id) => {
-    
-        API.getResult(user_id)
-        .then(res => {
-            console.log(res)
-            setOptions({ series: [{data: res.data.score}]})
-        })
-    }, [])
-
-        // const options = {
-        // chart: {
-        //     type: 'spline'
-        // },
-        // title: {
-        //     text: "your emotion level "
-        // },
-        // series: [
-        //     {
-        //         data: [1, 2, 3, 4, 5]
-        //     }
-        // ]
-        // }
-
-
-    return (
-        <Container>
-            <Row>
-                <Col>
-        <div className="chart">
-            <HighchartsReact
-                highcharts={Highcharts}
-                options={options} />
-        </div>
+  return (
+    <Container>
+      <Row>
+        <Col>
+          <div className="chart">
+     
+            <Plot
+              data={options}
+              layout={{ width: 640, height: 480, title: "7 Days Score" }}
+            />
+          </div>
         </Col>
-        </Row>
-        </Container>
+      </Row>
+    </Container>
+  );
+}
 
-    )
-    
-    
-
-};
-
-render(<Chart />, document.getElementById('root'));
-
+render(<Chart />, document.getElementById("root"));

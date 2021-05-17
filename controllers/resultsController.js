@@ -10,6 +10,19 @@ module.exports = {
          })
      })
     },
+    currentUserResult: async (req, res) => {
+        const userId = req.user._id;
+    
+        dbResult.find({
+            user_id: userId,
+        }).then( (results) => {
+            res.json({
+                data:results
+            })
+        }) 
+        
+        
+    },
     findByID: async (req, res) => {
         try {
             const results = await dbResult.find(req.params.id);

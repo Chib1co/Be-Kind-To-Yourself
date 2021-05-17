@@ -12,7 +12,7 @@ import Signup from "./pages/Signup";
 import Charts from "./pages/Charts";
 import Daylog from "./pages/DayLog";
 import AddActivity from "./pages/AddActivity";
-import SevendayResults from "./pages/SevendayResults"
+import SevendayResults from "./pages/SevendayResults";
 
 
 import Navbar from "./components/Navbar";
@@ -72,7 +72,7 @@ function App() {
                 <AddActivity /> : <Login />
               }
             </Route>
-            <Route path="sevendayResults">
+            <Route path="SevendayResults">
               {isAuthenticated ?
                 <SevendayResults /> : <Login />
               }

@@ -9,6 +9,9 @@ export default {
     getResults: function() {
         return axiosInstance.get("api/results")
     },
+    getCurrentUserResult(){
+      return axiosInstance.get('/api/results/current-user');
+    },
     getResult: function(id) {
         return axiosInstance.get("api/results/" + id)
     },

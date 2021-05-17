@@ -20,7 +20,7 @@ export default function SevendaysResults() {
 
   function loadSevenResults() {
       //i need to pass id
-    API.getResult().then((res) => {
+    API.getResults().then((res) => {
       setResults(res.data);
       console.log(res)
     });

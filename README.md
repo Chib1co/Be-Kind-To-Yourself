@@ -10,6 +10,8 @@ BCS Project3
     </li>
     <li><a href="#Technology">Technology</a></li>
     <li><a href="#learning">Learning</a></li>
+    <li><a href="#getting-started">Getting started</a></li>
+    <li><a href="#license">License</a></li>
     <li><a href="#screenshots">Screen shots</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
@@ -41,6 +43,23 @@ Major technology I used for this application
 Using every single knowledge we have learned in past 24weeks to create 
 own web application. It was very much challenging for me. Could not remember lot of things, also did not know lot of things. 
 There are so much more details to improve, but I am glad working out to create this application and it was tough challenge but definitely made a progress as a full stack web developer.
+
+## Getting Started
+
+To use budget tracker locally, use http://localhost:3000 after completing the following steps:
+
+```js
+git clone github.com/Chib1co/Be-Kind-To-Yourself
+npm install
+cd client
+npm install
+npm start
+```
+
+<!-- LICENSE -->
+## License
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 
 ## Screenshots
 

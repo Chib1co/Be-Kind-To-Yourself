@@ -88,6 +88,6 @@ Tomomi Inoue
 
 Project Link: [https://github.com/Chib1co/Be-Kind-To-Yourselfe](https://github.com/Chib1co/Be-Kind-To-Yourself)
 
-Deployed page: [https://chib1co.github.io/](https://chib1co.github.io/)
+Deployed page: [https://polar-tundra-51055.herokuapp.com/](https://polar-tundra-51055.herokuapp.com/)
 
 Presentation Slide: [https://docs.google.com/presentation/d/1vS_knluv0PbEoeepXZATWnwdpI5_KGBMZUPOZusjD0M/edit?usp=sharing](https://docs.google.com/presentation/d/1vS_knluv0PbEoeepXZATWnwdpI5_KGBMZUPOZusjD0M/edit?usp=sharing)

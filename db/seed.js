@@ -9,6 +9,8 @@ mongoose.connect(
       useNewUrlParser: true,
       useFindAndModify: false
     }
+    .then(connect => console.log('connected to mongodb..'))
+    .catch(e => console.log('could not connect to mongodb', e))
   )
 
 
@@ -19,3 +21,5 @@ function seeder(){
 }
 
 seeder();
+
+module.exports = {mongoose}

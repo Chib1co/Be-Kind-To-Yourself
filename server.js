@@ -31,7 +31,7 @@ app.use(cors({
 const PORT = process.env.PORT || 3001;
 
 mongoose.connect(
-  process.env.MONGODB_URI ||"mongodb://localhost/Be-Kind-To-Yourself",
+  process.env.MONGO_URI ||"mongodb://localhost/Be-Kind-To-Yourself",
   {
     useNewUrlParser: true,
     useFindAndModify: false

@@ -30,13 +30,13 @@ app.use(cors({
 
 const PORT = process.env.PORT || 3001;
 
-mongoose.connect(
-  process.env.MONGO_URI ||"mongodb://localhost/Be-Kind-To-Yourself",
-  {
-    useNewUrlParser: true,
-    useFindAndModify: false
-  }
-)
+// mongoose.connect(
+//   process.env.MONGO_URI ||"mongodb://localhost/Be-Kind-To-Yourself",
+//   {
+//     useNewUrlParser: true,
+//     useFindAndModify: false
+//   }
+// )
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));

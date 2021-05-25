@@ -4,10 +4,10 @@ const mongoose = require("mongoose");
 
 function connectDb(){
     mongoose.connect(
-        process.env.MONGO_URI || "mongodb://localhost/Be-Kind-To-Yourself",
+        process.env.MONGODB_URI || "mongodb://localhost/Be-Kind-To-Yourself",
         {
             useCreateIndex: true,
-            useNewUrlParser: true,
+            useNewUrlParser: false,
         }
     );
 }

@@ -1,7 +1,7 @@
 
 import React, {useState, useEffect } from "react";
 import "./LoginCard.css"
-import LoginBtn from "../LoginBtn/Index.js"
+// import LoginBtn from "../components/LoginBtn"
 
 
 export default function LoginCard(props) {

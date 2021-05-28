@@ -1,7 +1,7 @@
 
 const whitelist = [
     "*",
-    "http://localhost:8080",
+    "https://localhost:8080",
     "localhost:8080"
 ];
 

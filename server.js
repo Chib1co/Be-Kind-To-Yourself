@@ -31,15 +31,7 @@ app.use(cors({
 const PORT = process.env.PORT || 3001;
 
 
-// Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
-const path = require("path")
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "./client/build/index.html"))
-  })
-// }
+
 
 // Define API routes here
 app.use(
@@ -62,6 +54,18 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use("/api", routes);
+
+
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/public"));
+
+}
+const path = require("path")
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "public", "index.html"))
+  })
+ 
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);

@@ -22,11 +22,12 @@ export default function Result() {
     function loadResult() {
       API.getNewestResult().then((res) => {
         setResult(res.data);
-        console.log(res.data);
+        console.log(res.data.data);
       });
     }
 
     function getChart() {API.getCurrentUserResult().then((res) => {
+      console.log("getCurrentUserResult" + res.data.data)
   
 
       const y = res.data.data.slice(-7).map((result) => {

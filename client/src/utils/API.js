@@ -80,6 +80,7 @@ export default {
 
      // Check if user is logged in
   userLoggedIn: function() {
+    console.log("user logged in ")
     return axiosInstance({
       method: 'get',
       url: "api/users/logged-in",
